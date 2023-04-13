@@ -1,0 +1,260 @@
+<style>
+    /* START STYLE
+     * Style for the to do list, I used this stile for the articles "Cosa mettere in valigia" and "Cosa portare al mare"
+     */
+     .list {
+        position: relative;
+          box-sizing: border-box;
+        background: #fff;
+        width: 100%;
+          border: 1px solid #123456;
+        }
+    
+        .list h4 {
+            background: #123456;
+            color: #fff;
+            padding: 10px 20px;
+            font-weight: 600;
+        }
+    
+        .list ul {
+            position: relative;
+            padding: 2rem;
+        }
+    
+        .list ul li {
+            position: relative;
+            list-style: none;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+    
+        .list ul li:last-child {
+            border-bottom: none;
+        }
+    
+        .list ul li label {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+    
+        .list ul li label input {
+            visibility: hidden;
+            appearance: none;
+        }
+    
+        .list ul li label p {
+            position: absolute;
+                  margin-top: 1.5rem;
+                  font-weight: 600;
+                  color: #123456;
+        }
+    
+        .list ul li label span {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .list ul li label span:before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            width: 10px;
+            height: 5px;
+            border-left: 2px solid #ccc;
+            border-bottom: 2px solid #ccc;
+            transform: rotate(-40deg);
+        }
+    
+        .list ul li label input:checked ~ p {
+            text-decoration: line-through;
+            color: #123456;
+        }
+    
+        .list ul li label input:checked ~ span {
+            background: #123456;
+            border: 1px solid #123456;
+        }
+    
+        .list ul li label input:checked ~ span::before {
+            border-left: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+        }
+    /* END STYLE */
+    </style>
+    
+<section class="list">
+    <h4>Lista valigia cane</h4>
+    <ul>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Documenti</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Fotocopie dei documenti</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Libretto vaccinazioni</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Passaporto Europeo per l'estero</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Medicine</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Ricette mediche</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Lista numeri utili</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Cibo</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Ossetti</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Biscottini</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Beauty case</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Ciotola cibo</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Ciotola acqua</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Copertina</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Telo</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>I suoi giochi</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Guinzaglio</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Pettorina</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Museurola</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Trasportino</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Sacchetti</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Giubotto catarinfrangente</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Salvagente per il mare</p>
+                <span></span>
+            </label>
+        </li>
+    </ul>
+</section>

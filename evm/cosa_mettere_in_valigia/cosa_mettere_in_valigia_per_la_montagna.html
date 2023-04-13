@@ -1,0 +1,540 @@
+<style>
+    /* START STYLE
+     * Style for the to do list, I used this stile for the articles "Cosa mettere in valigia" and "Cosa portare al mare"
+     */
+     .list {
+        position: relative;
+          box-sizing: border-box;
+        background: #fff;
+        width: 100%;
+          border: 1px solid #123456;
+        }
+    
+        .list h4 {
+            background: #123456;
+            color: #fff;
+            padding: 10px 20px;
+            font-weight: 600;
+        }
+    
+        .list ul {
+            position: relative;
+            padding: 2rem;
+        }
+    
+        .list ul li {
+            position: relative;
+            list-style: none;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+    
+        .list ul li:last-child {
+            border-bottom: none;
+        }
+    
+        .list ul li label {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+    
+        .list ul li label input {
+            visibility: hidden;
+            appearance: none;
+        }
+    
+        .list ul li label p {
+            position: absolute;
+                  margin-top: 1.5rem;
+                  font-weight: 600;
+                  color: #123456;
+        }
+    
+        .list ul li label span {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .list ul li label span:before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            width: 10px;
+            height: 5px;
+            border-left: 2px solid #ccc;
+            border-bottom: 2px solid #ccc;
+            transform: rotate(-40deg);
+        }
+    
+        .list ul li label input:checked ~ p {
+            text-decoration: line-through;
+            color: #123456;
+        }
+    
+        .list ul li label input:checked ~ span {
+            background: #123456;
+            border: 1px solid #123456;
+        }
+    
+        .list ul li label input:checked ~ span::before {
+            border-left: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+        }
+    /* END STYLE */
+    </style>
+    
+<section class="list">
+    <h4>Lista valigia montgna</h4>
+    <ul>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Documenti</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Fotocopie dei documenti</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Autocertificazioni tipo Green Pass</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Biglietto aereo/treno</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Chiavi di casa</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Portafoglio</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Carta credito/debito</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Soldi</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Libro</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Abigliamento per la montagna</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Calzini massicci</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Biancheria intima</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Scarpe da trekking</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>t-shirts</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Pantaloni impermeabili</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Pantaloni normali</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Pantaloni corti</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Maglione</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Felpa</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Pigiama</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Ciabattine</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Sciarpa</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Foulard</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Cappello per il sole</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Cappello per il freddo</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Giubotto</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Dopo-scii</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Protezione solare</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Occhiali da sole</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Scarpe comode</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Sacco panni sporchi</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Saponetta di marsiglia</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Shampoo</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Bagnoschiuma</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Trucchi</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Pinzette</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Salviette per le mani</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Salviette struccanti</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Igenizzante tipo amuchina</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Smartphone</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Caricabatterie</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Macchina fotografica</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Auricolari</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Tablet</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Computer</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Spazzolino</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Dentifricio</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Deodorante</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Burrocacao</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Crema corpo</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Crema mani</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Spazzola per capelli</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Pettine</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Rasoio</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Medicinali indispensabili</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Asciugacapelli</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Asciugamano microfibra</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Adattatore prese</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Agenda</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Penna</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Orologio</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Alimenti</p>
+                <span></span>
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox">
+                <p>Ombrello</p>
+                <span></span>
+            </label>
+        </li>
+    </ul>
+</section>
