@@ -1,0 +1,79 @@
+<div class="content">
+    <p>In this new guide of Dev With It we are going to convert a jpg, png or other image formats to webp.</p>
+    <p>Nowadays, it is important to have a fast and responsive website and webp format allows us to use images with smaller size compared to jpg and png. If you used to inspect your website with Lighthouse, you probably saw the message <a class="link" rel="noreferrer noopener" href="https://developer.chrome.com/en/docs/lighthouse/performance/uses-webp-images/" target="_blank">Serve images in modern formats</a>. That is what we will do in this new tutorial of <em>Dev With It</em>.</p>
+    <p>&nbsp;</p>
+    <p><strong>What is webp?</strong></p>
+    <p><a class="link" rel="noreferrer noopener" href="https://developers.google.com/speed/webp" target="_blank">WebP</a> is an image format for the web that allows to create images 25-34% smaller compared to other formats like jpg, png, jpeg, GIF, APNG and so on. <a class="link" rel="noreferrer noopener" href="https://en.wikipedia.org/wiki/WebP" target="_blank">WebP was created by Google</a>, it was announced in September 2010 and it was released in April 2018. Today, it is supported by all modern browsers like Google Chrome, Microsoft Edge, FireFox, Opera, Safari and many more - you can see the full list in the official documentation of the <a class="link" rel="noreferrer noopener" href="https://developers.google.com/speed/webp/faq#which_web_browsers_natively_support_webp" target="_blank">web browsers natively support WebP</a>.</p>
+    <p>&nbsp;</p>
+    <h2>How to convert an image to webp format</h2>
+    <p>There are different ways to convert an image to webp format. In this tutorial we are going to use the <a class="link" rel="noreferrer noopener" href="https://developers.google.com/speed/webp/download" target="_blank">cwebp conversion tool</a> that is available for Windows, macOS and Linux.</p>
+    <p>You can install <strong>cwebp</strong> by <a class="link" rel="noreferrer noopener" href="https://chocolatey.org/" target="_blank">choco</a> for Windows, <a class="link" rel="noreferrer noopener" href="https://brew.sh/" target="_blank">brew</a> for macOS or <a class="link" rel="noreferrer noopener" href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux" target="_blank">red hat</a> for Linux.</p>
+    <p>&nbsp;</p>
+    <p class="content__code-file"><strong>Windows Terminal</strong></p>
+    <div class="content__code-container">
+        <pre>
+            <code>
+                choco install webp
+            </code>
+        </pre>
+    </div>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p class="content__code-file"><strong>macOS Terminal</strong></p>
+    <div class="content__code-container">
+        <pre>
+            <code>
+                brew install webp
+            </code>
+        </pre>
+    </div>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p class="content__code-file"><strong>Linux Terminal</strong></p>
+    <div class="content__code-container">
+        <pre>
+            <code>
+                yum install libwebp-tools
+            </code>
+        </pre>
+    </div>
+    <p>&nbsp;</p>
+    <p>In this tutorial we will use choco for Windows but the commands are the same for macOS and Linux too.</p>
+    <p>&nbsp;</p>
+    <p>Open Windows terminal and run the following command:</p>
+    <ul>
+        <li><p><em>choco install webp</em></p></li>
+    </ul>
+    <p>&nbsp;</p>
+    <p>Now we are ready to convert jpg, png, jpeg, GIF, APNG and other image formats to webp. Create a <em>“Webp Image”</em> folder in your device, e.g., inside the document folder - you can name this folder as you prefer, and you can save this folder anywhere in your device.</p>
+    <p>&nbsp;</p>
+    <p>At this point, save into <em>“Webp Image”</em> (see example below) an image that you would like to convert into webp. In this case, I will save a <strong>london.jpg</strong> image into this folder, I got it by <a class="link" rel="noreferrer noopener" href="https://unsplash.com/" target="_blank">Unplash</a>.</p>
+    <p>&nbsp;</p>
+    <div class="content__container-image">
+        <img class="content__image content__image-xl" src="../images/webp-images-folder.webp" alt="WebP Images Folder" width="630" height="100">
+        <img class="content__image content__image-sm" src="../images/webp-images-folder-sm.webp" alt="SiteGround menu for creating a new website" width="300" height="150">
+    </div>
+    <p>&nbsp;</p>
+    <p>Now, you have to open your terminal in this folder and then you have to run the following command:</p>
+    <ul>
+        <li><p><em>cwebp -q 75 london.jpg -o london.webp</em></p></li>
+    </ul>
+    <p>&nbsp;</p>
+    <div class="content__container-image">
+        <img class="content__image content__image-xl" src="../images/cwebp-terminal.webp" alt="CwebP Terminal" width="630" height="300">
+        <img class="content__image content__image-sm" src="../images/cwebp-terminal-sm.webp" alt="SiteGround menu for creating a new website" width="300" height="150">
+    </div>
+    <p>&nbsp;</p>
+    <p>The above command takes a jpg image and converts it to webp. The number 75 is the default lossy quality setting, however you can set the value when you run the above command in the terminal - e.g., <em>cwebp -q 50 london.jpg -o london.webp</em></p>
+    <p>&nbsp;</p>
+    <div class="content__container-image">
+        <img class="content__image content__image-xl" src="../images/webp-image-result.webp" alt="WebP Image Result" width="630" height="300">
+        <img class="content__image content__image-sm" src="../images/webp-image-result-sm.webp" alt="SiteGround menu for creating a new website" width="300" height="150">
+    </div>
+    <p>&nbsp;</p>
+    <p>That’s it, you have created your first webp image and now you are able to convert all images to webp, noting how your web page will get faster. </p>
+    <p>&nbsp;</p>
+    <p>As you can see, <strong>cwebp</strong> created new <strong>.webp</strong> images keeping the original one. At this point, feel free to open both images to see that there is no difference between them. In the above example, the <strong>london.jpg</strong> image was <strong>4586 KB</strong> compared to the <strong>2473 KB</strong> to the <strong>london.webp</strong> format. Can you imagine how it can speed up your web pages?</p>
+    <p>&nbsp;</p>
+    <p>In this tutorial we saw a simple and easy way to transform an image to webp format. However, there are other and different ways to achieve this goal like <a class="link" rel="noreferrer noopener" href="https://www.npmjs.com/" target="_blank">Node npm</a> or other platforms. Feel free to use the way that suits you.</p>
+</div>

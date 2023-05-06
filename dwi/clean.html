@@ -9,8 +9,16 @@
     <p>SiteGround is a web hosting service that allows you to deploy PHP applications. It is pretty easy to use, it allows you to deploy web apps with Symfony, Laravel, WordPress, Drupal, vanilla PHP and any other PHP apps with few and simple steps. It is possible to also use version control with SiteGround but in this tutorial we will use FTP with FileZilla.</p>
     <p>&nbsp;</p>
     <p>Creating and deploying simple or complex web applications with PHP, Symfony with SiteGround could be the great recipe for your next business.</p>
-    <p>&nbsp;</p>
-    <h2>How to deploy a Symfony 6 app to shared hosting</h2>
+    <div class="content__index">
+        <ol>
+            <li><a class="link" href="#1">How to deploy a Symfony 6 app to shared hosting</a></li>
+            <li><a class="link" href="#2">How to create a shared hosting with MySQL on SiteGround</a></li>
+            <li><a class="link" href="#3">How to create a MySQL database on shared hosting with SiteGround</a></li>
+            <li><a class="link" href="#4">Create an FTP Accounts</a></li>
+            <li><a class="link" href="#5">Deploy a Symfony 6 web app to shared hosting SiteGround</a></li>
+        </ol>
+    </div>
+    <h2 id="1">How to deploy a Symfony 6 app to shared hosting</h2>
     <p>How to deploy a Symfony 6 application to shared hosting? To deploy a PHP Symfony application to shared hosting you need to:</p>
     <ul>
         <li><a class="link" rel="noreferrer noopener" href="https://symfony.com/doc/current/setup.html" target="_blank">Install Symfony</a> on your device</li>
@@ -22,86 +30,99 @@
     <p>If you are using any other version of Symfony, like Symfony 5, you will be able to follow this tutorial too, just some parts could be different but you will understand how to handle them.</p>
     <p>Last but not least, in this guide we will use a MySQL database, we will create one to SiteGround.</p>
     <p>&nbsp;</p>
-    <h2>How to create a shared hosting with MySQL on SiteGround</h2>
+    <h2 id="2">How to create a shared hosting with MySQL on SiteGround</h2>
     <p>The first step is to have the environment ready where we will deploy our full stack applications with Symfony.</p>
     <p>Login to SiteGround, select the <strong>Websites</strong> option and then click on the button <strong>New Website</strong>.</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/siteground-create-new-website.webp" alt="SiteGround menu for creating a new website">
+        <img class="content__image content__image-xl" src="../images/siteground-create-new-website.webp" alt="SiteGround menu for creating a new website">
+        <img class="content__image content__image-sm" src="../images/siteground-create-new-website.webp" alt="SiteGround menu for creating a new website" width="300" height="80">
     </div>
     <p>&nbsp;</p>
     <p>Select your <strong>Plan</strong> and then click on <strong>Continue</strong> - the plan depending on your subscription</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/siteground-select-plan.webp" alt="SiteGround menu for seleting the plan">
+        <img class="content__image content__image-xl" src="../images/siteground-select-plan.webp" alt="SiteGround menu for seleting the plan">
+        <img class="content__image content__image-sm" src="../images/siteground-select-plan.webp" alt="SiteGround menu for seleting the plan" width="300" height="150">
     </div>
     <p>&nbsp;</p>
     <p>At this point, select a <strong>New Domain</strong>, an <strong>Existing Domain</strong> or a <strong>Temporary Domain</strong>. For this tutorial, I chose a <strong>Temporary Domain</strong></p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/siteground-temporary-domain.webp" alt="SiteGround Add Domain Menu Dashboard">
+        <img class="content__image content__image-xl" src="../images/siteground-temporary-domain.webp" alt="SiteGround Add Domain Menu Dashboard">
+        <img class="content__image content__image-sm" src="../images/siteground-temporary-domain.webp" alt="SiteGround Add Domain Menu Dashboard" width="300" height="150">
     </div>
     <p>&nbsp;</p>
     <p>At this point, select <strong>Continue</strong> and then <strong>Skip & Create Empty Site</strong></p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/siteground-skip-and-create-empty-site.webp" alt="SiteGround Menu for creating an empty site">
+        <img class="content__image content__image-xl" src="../images/siteground-skip-and-create-empty-site.webp" alt="SiteGround Menu for creating an empty site">
+        <img class="content__image content__image-sm" src="../images/siteground-skip-and-create-empty-site.webp" alt="SiteGround Menu for creating an empty site" width="300" height="150">
     </div>
     <p>&nbsp;</p>
     <p>At this point select the option <strong>Continue</strong> and wait until SiteGround creates the site for you.</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/siteground-creating-new-site.webp" alt="SiteGround Creating New Site">
+        <img class="content__image content__image-xl" src="../images/siteground-creating-new-site.webp" alt="SiteGround Creating New Site">
+        <img class="content__image content__image-sm" src="../images/siteground-creating-new-site.webp" alt="SiteGround Creating New Site" width="300" height="150">
     </div>
     <p>&nbsp;</p>
     <p>There we are, select the option <strong>Site Tools</strong> that will redirect you to the SiteGround Admin Dashboard.</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/siteground-site-tool.webp" alt="SiteGround Site Tool Menu">
+        <img class="content__image content__image-xl" src="../images/siteground-site-tool.webp" alt="SiteGround Site Tool Menu">
+        <img class="content__image content__image-sm" src="../images/siteground-site-tool.webp" alt="SiteGround Site Tool Menu" width="300" height="150">
     </div>
     <p>&nbsp;</p>
-    <h2>How to create a MySQL database on shared hosting with SiteGround</h2>
+    <h2 id="3">How to create a MySQL database on shared hosting with SiteGround</h2>
     <p>We created the environment on SiteGround, now we have to create a MySQL database that we will use for our Symfony 6 application.</p>
     <p>Go to SiteGround, select your project and go to the Admin Dashboard. Once you are into the latter, select the options <strong>Site</strong> and then <strong>MySQL</strong></p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/siteground-select-mysql-database.webp" alt="SiteGround Select MySQL Database Menu">
+        <img class="content__image content__image-xl" src="../images/siteground-select-mysql-database.webp" alt="SiteGround Select MySQL Database Menu">
+        <img class="content__image content__image-sm" src="../images/siteground-select-mysql-database.webp" alt="SiteGround Select MySQL Database Menu" width="300" height="150">
     </div>
     <p>&nbsp;</p>
     <p>Select the option <strong>Create Database</strong> and then save the name of your database, you will need it later. It is important not to share the database name, it has been done in this guide just for better understanding.</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/sitegrund-mysql-name.webp" alt="SiteGround MySQL Name">
+        <img class="content__image content__image-xl" src="../images/sitegrund-mysql-name.webp" alt="SiteGround MySQL Name">
+        <img class="content__image content__image-sm" src="../images/sitegrund-mysql-name.webp" alt="SiteGround MySQL Name" width="300" height="150">
     </div>
     <p>&nbsp;</p>
     <p>It is time to create a user for our MySQL database selecting the options <strong>Users</strong> and then <strong>Create User</strong>.</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/siteground-create-user.webp" alt="SiteGround Create User for MySQL Database">
+        <img class="content__image content__image-xl" src="../images/siteground-create-user.webp" alt="SiteGround Create User for MySQL Database">
+        <img class="content__image content__image-sm" src="../images/siteground-create-user.webp" alt="SiteGround Create User for MySQL Database" width="300" height="150">
     </div>
     <p>&nbsp;</p>
     <p>Like the name of the database, save the name of the user and password, you will need them later - for security reasons, do not share user details, it has been done in this guide just for better understanding.</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/siteground-user-and-pw.webp" alt="SiteGround User and Password Menu on the DB Section">
+        <img class="content__image content__image-xl" src="../images/siteground-user-and-pw.webp" alt="SiteGround User and Password Menu on the DB Section">
+        <img class="content__image content__image-sm" src="../images/siteground-user-and-pw.webp" alt="SiteGround User and Password Menu on the DB Section" width="300" height="150">
     </div>
     <p>&nbsp;</p>
     <p>Now, we have to associate our user with our database, selecting the options <strong>Databases > Add New User</strong>.</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/siteground-associate-usert-with-the-db.webp" alt="SiteGround Menu Associate User with DB">
+        <img class="content__image content__image-xl" src="../images/siteground-associate-usert-with-the-db.webp" alt="SiteGround Menu Associate User with DB">
+        <img class="content__image content__image-sm" src="../images/siteground-associate-usert-with-the-db.webp" alt="SiteGround Menu Associate User with DB" width="300" height="50">
     </div>
     <p>&nbsp;</p>
     <p>Select <strong>All Privileges</strong> for your user and <strong>Confirm</strong>.</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/siteground-user-all-privileges.webp" alt="SiteGround Menu All Privileges for db user">
+        <img class="content__image content__image-xl" src="../images/siteground-user-all-privileges.webp" alt="SiteGround Menu All Privileges for db user">
+        <img class="content__image content__image-sm" src="../images/siteground-user-all-privileges.webp" alt="SiteGround Menu All Privileges for db user" width="300" height="150">
     </div>
     <p>&nbsp;</p>
     <p>Now, you should be able to see that a user is added to your database.</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/siteground-user-related-to-the-db.webp" alt="SiteGround Menu User Related to the db">
+        <img class="content__image content__image-xl" src="../images/siteground-user-related-to-the-db.webp" alt="SiteGround Menu User Related to the db">
+        <img class="content__image content__image-sm" src="../images/siteground-user-related-to-the-db.webp" alt="SiteGround Menu User Related to the db" width="300" height="150">
     </div>
     <p>&nbsp;</p>
     <p>Now, the last important step on our database: we have to create an IPs whitelist for our database. Basically, only these IPs will be able to connect to our database. We are going to add here the IP of our personal network (the IP of your location like your house or your office) and the IP of our website on SiteGround.</p>
@@ -109,7 +130,8 @@
     <p>There are different ways to have your personal IP address, one of these is using <a class="link" rel="noreferrer noopener" href="https://whatismyipaddress.com/" target="_blank">WhatIsMyIpAddress</a>, a website that gives you this kind of information. Save the <strong>IPv4</strong> somewhere, you will need it later.</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/personal-ip-address.webp" alt="WhatIsMyIpAddress Home with ipv4">
+        <img class="content__image content__image-xl" src="../images/personal-ip-address.webp" alt="WhatIsMyIpAddress Home with ipv4">
+        <img class="content__image content__image-sm" src="../images/personal-ip-address.webp" alt="WhatIsMyIpAddress Home with ipv4" width="300" height="150">
     </div>
     <p>&nbsp;</p>
     <p>For the IP address of your website, you can open your terminal on Windows, on Mac or on Linux and run this command:</p>
@@ -118,36 +140,41 @@
     </ul>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/terminal-ip-address.webp" alt="Windows Terminal with IP Address">
+        <img class="content__image content__image-xl" src="../images/terminal-ip-address.webp" alt="Windows Terminal with IP Address">
+        <img class="content__image content__image-sm" src="../images/terminal-ip-address.webp" alt="Windows Terminal with IP Address" width="300" height="150">
     </div>
     <p>&nbsp;</p>
     <p>At this stage, we have to add these two IPs to our white list so we will be able to connect to our MySQL database.</p>
     <p>Come back to SiteGround and select <strong>Remote</strong>, then add your <strong>Host</strong> (it is your IP address) and a <strong>Label</strong> (it will allow you to remember the name of your IP).</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/siteground-white-list.webp" alt="SiteGround White List for DB">
+        <img class="content__image content__image-xl" src="../images/siteground-white-list.webp" alt="SiteGround White List for DB">
+        <img class="content__image content__image-sm" src="../images/siteground-white-list.webp" alt="SiteGround White List for DB" width="300" height="150">
     </div>
     <p>&nbsp;</p>
     <p>Do the same for the IP of your website.</p>
     <p>Once you have done this, you will be able to see your white list in the <strong>Manage Remote Hosts</strong>.</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/siteground-manage-remote-host.webp" alt="SiteGround Menu Manage Remote Host">
+        <img class="content__image content__image-xl" src="../images/siteground-manage-remote-host.webp" alt="SiteGround Menu Manage Remote Host">
+        <img class="content__image content__image-sm" src="../images/siteground-manage-remote-host.webp" alt="SiteGround Menu Manage Remote Host" width="300" height="50">
     </div>
     <p>&nbsp;</p>
     <p>You can allow all IP addresses to connect with your database adding an * instead of the IP address. However, we discourage you from using this practice.</p>
     <p>&nbsp;</p>
-    <h2>Create an FTP Accounts</h2>
+    <h2 id="4">Create an FTP Accounts</h2>
     <p>It is time to create an <strong>FTP account</strong>. In your SiteGround dashboard, select the option FTP Accounts and then add an <strong>Account Name</strong> and a <strong>Password</strong>.</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/siteground-ftp-account.webp" alt="SiteGround Menu for FTP Account">
+        <img class="content__image content__image-xl" src="../images/siteground-ftp-account.webp" alt="SiteGround Menu for FTP Account">
+        <img class="content__image content__image-sm" src="../images/siteground-ftp-account.webp" alt="SiteGround Menu for FTP Account" width="300" height="150">
     </div>
     <p>&nbsp;</p>
     <p>At this point, select the three dots under the voice <strong>Action</strong> and then select the option <strong>FTP Credentials</strong>.</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/siteground-ftp-credentials.webp" alt="SiteGround Menu FTP Credentials">
+        <img class="content__image content__image-xl" src="../images/siteground-ftp-credentials.webp" alt="SiteGround Menu FTP Credentials">
+        <img class="content__image content__image-sm" src="../images/siteground-ftp-credentials.webp" alt="SiteGround Menu FTP Credentials" width="300" height="150">
     </div>
     <p>&nbsp;</p>
     <p>Now that you have the credentials, it is time to open the FTP client, we will use FileZilla in this guide but you can use any other software.</p>
@@ -155,17 +182,18 @@
     <p>Write the name of your website, then add all the data in the right column that you got from SiteGroud and at the end select the button <strong>Connect</strong> - in the following example I called the website <strong>Symfony 6</strong>, you can call it with any name.</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/filezilla-new-site.webp" alt="FileZilla Create New Site">
+        <img class="content__image content__image-xl" src="../images/filezilla-new-site.webp" alt="FileZilla Create New Site">
+        <img class="content__image content__image-sm" src="../images/filezilla-new-site.webp" alt="FileZilla Create New Site" width="300" height="150">
     </div>
     <p>&nbsp;</p>
     <p>There we go, now you are connected to your shared hosting. It is time to set up our Symfony 6 application and then deploy it.</p>
     <p>&nbsp;</p>
-    <h2>Deploy a Symfony 6 web app to shared hosting SiteGround</h2>
+    <h2 id="5">Deploy a Symfony 6 web app to shared hosting SiteGround</h2>
     <p>We are going to set up and deploy our web application. We are assuming that you already have a Symfony app, if you do not have it, you can create it following the well organised <a class="link" rel="noreferrer noopener" href="https://symfony.com/doc/current/index.html" target="_blank">Symfony official documentation</a>. If you do not know where to start with this PHP framework, we strongly suggest <a class="link" rel="noreferrer noopener" href="https://symfony.com/book" target="_blank">The Book for Symfony</a> (available in different languages) or the great channel <a class="link" rel="noreferrer noopener" href="https://symfonycasts.com/" target="_blank">Symfony Cast</a>.</p>
     <p>&nbsp;</p>
     <p>Open your Symfony application on Visual Studio Code. Open the file .env and add the data of your database - in our guide, the database that we created on SiteGround.</p>
     <p>&nbsp;</p>
-    <p><strong>.env</strong></p>
+    <p class="content__code-file"><strong>.env</strong></p>
     <pre>
         <code>
             DATABASE_URL="mysql://NameOfYourDbUser:PasswordOfYourDbUser@DomainOfYourSite:3306/NameOfYourDataBase?serverVersion=mariadb-10.5.8"
@@ -182,9 +210,9 @@
     <p>&nbsp;</p>
     <p>In SiteGround the door is 3306, if you are using another shared hosting, the door could be different.</p>
     <p>&nbsp;</p>
-    <p>Open <strong>config/packages/framework.yaml</strong> and add a line of code that allows search engines to index your web application. You can find more information about it in the Symfony Framework Configuration Reference.</p>
+    <p>Open <strong class="content__code-file">config/packages/framework.yaml</strong> and add a line of code that allows search engines to index your web application. You can find more information about it in the Symfony Framework Configuration Reference.</p>
     <p>&nbsp;</p>
-    <p><strong>config/packages/framework.yaml</strong></p>
+    <p class="content__code-file"><strong>config/packages/framework.yaml</strong></p>
     <pre>
         <code>
             # see https://symfony.com/doc/current/reference/configuration/framework.html
@@ -200,12 +228,13 @@
     <p>In your project change the <strong>public</strong> folder to <strong>public_html</strong></p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/symfony-public-folder.webp" alt="Symfony App Public Folder">
+        <img class="content__image content__image-xl" src="../images/symfony-public-folder.webp" alt="Symfony App Public Folder">
+        <img class="content__image content__image-sm" src="../images/symfony-public-folder.webp" alt="Symfony App Public Folder" width="300" height="300">
     </div>
     <p>&nbsp;</p>
     <p>At this point, we have to say to <strong>composer.json</strong> files that the public folder has been changed. Open the <strong>composer.json</strong> file in the root folder and add the following line of code:</p>
     <p>&nbsp;</p>
-    <p><strong>composer.json</strong></p>
+    <p class="content__code-file"><strong>composer.json</strong></p>
     <pre>
         <code>
             "extra": {
@@ -224,9 +253,9 @@
         <li><em>composer install</em></li>
     </ul>
     <p>&nbsp;</p>
-    <p>If you are using <strong>webpack</strong> in your Symfony project, you have to update the <strong>public</strong> folder from public to <strong>public_html</strong> in the file <strong>config\packages\webpack_encore.yaml</strong></p>
+    <p>If you are using <strong>webpack</strong> in your Symfony project, you have to update the <strong>public</strong> folder from public to <strong>public_html</strong> in the file <strong class="content__code-file">config\packages\webpack_encore.yaml</strong></p>
     <p>&nbsp;</p>
-    <p><strong>config\packages\webpack_encore.yaml</strong></p>
+    <p class="content__code-file"><strong>config\packages\webpack_encore.yaml</strong></p>
     <pre>
         <code>
             webpack_encore:
@@ -280,7 +309,8 @@
     <p>The above command <a class="link" rel="noreferrer noopener" href="https://symfony.com/doc/current/frontend/encore/faq.html" target="_blank">compiles the assets for production</a>. The above command has created a new <strong>public/build</strong> folder that you have to move to <strong>public_html</strong> folder - in the latter, delete the old <strong>build</strong> folder.</p>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/symfony-asset.webp" alt="Symfony Asset Folder">
+        <img class="content__image content__image-xl" src="../images/symfony-asset.webp" alt="Symfony Asset Folder">
+        <img class="content__image content__image-sm" src="../images/symfony-asset.webp" alt="Symfony Asset Folder" width="300" height="300">
     </div>
     <p>&nbsp;</p>
     <p>Now, we are going to create the <strong>.htaccess</strong> running the following command in the terminal:</p>
@@ -307,7 +337,8 @@
     </ul>
     <p>&nbsp;</p>
     <div class="content__container-image">
-        <img class="content__image" src="../images/symfony-project-on-filezilla.webp" alt="Symfony Project on FileZilla">
+        <img class="content__image content__image-xl" src="../images/symfony-project-on-filezilla.webp" alt="Symfony Project on FileZilla">
+        <img class="content__image content__image-sm" src="../images/symfony-project-on-filezilla.webp" alt="Symfony Project on FileZilla" width="300" height="300">
     </div>
     <p>&nbsp;</p>
     <p>That’s it, your Symfony 6 app is finally live.</p>
