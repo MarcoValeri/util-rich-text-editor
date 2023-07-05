@@ -29,6 +29,7 @@ while (!feof($inputFile)) {
         $output !== '<!-- /wp:list-item -->' &&
         $output !== '<!-- wp:list-item -->' &&
         $output !== '<!-- /wp:list -->' &&
+        $output !== '<amp-ad width="100vw" height="320" type="adsense" data-ad-client="ca-pub-9306947071363993" data-ad-slot="9939493911" data-auto-format="rspv" data-full-width="">' &&
         strlen($output) > 0
         ) {
         $check = strpos($output, $remove);
