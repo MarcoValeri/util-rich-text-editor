@@ -1,0 +1,551 @@
+<div class="content">
+    <p>How to create a responsive navbar with React and SCSS? It is possible to create a responsive nav menu without icons and without any JavaScript events like we do in this new tutorial of <em>DevWithIt</em>.</p>
+    <p>Why this tutorial? Well, creating navigation menu is often a tricky task and at <em>DevWithIt</em> we like the idea of creating a base code that you can use and customise through your projects. However, the latter is not the only reason. Navigation menu is one of the first components that is loaded by the browser so it is good practice to have a light nav menu, avoiding unnecessary JavaScript.</p>
+    <p>In fact, in this tutorial we are going to create a navigation menu with React and SCSS, that means that the burger menu will work perfectly only thanks to the CSS.</p>
+    <p>If you are not familiar with React, feel free to see our <a class="link" rel="noreferrer noopener" href="https://www.devwithit.com/react-tutorial" target="_blank">React Tutorial</a>.</p>
+    <p>&nbsp;</p>
+    <p>What do you need for following this tutorial? You need to have installed <a class="link" rel="noreferrer noopener" href="https://nodejs.org/en" target="_blank">Node</a> on your device and a code editor like <a class="link" rel="noreferrer noopener" href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>.</p>
+    <p>In the first paragraph of this tutorial we set up the project and in the second one we create the navigation menu. If you are in a rush, feel free to go to the last paragraph of the tutorial where you will find the code of this guide in a GitHub repository.</p>
+    <p>Let’s code it.</p>
+    <div class="content__index">
+        <ol>
+            <li><a class="link" href="#1">Set up the project</a></li>
+            <li><a class="link" href="#2">Create nav component</a></li>
+            <li><a class="link" href="#3">How to create a responsive navbar with React and SCSS</a></li>
+        </ol>
+    </div>
+    <h2 id="1">Set up the project</h2>
+    <p>As a first step, we have to <a class="link" rel="noreferrer noopener" href="https://react.dev/learn/start-a-new-react-project" target="_blank">create a new React project</a>. At the moment, one of the best options is <a class="link" rel="noreferrer noopener" href="https://vitejs.dev/" target="_blank">Vite</a> so we are going to use it.</p>
+    <p>In your device, open a terminal and browse to the folder where you want to create this new project, then run the following command:</p>
+    <ul>
+        <li><p><em>npm create vite</em></p></li>
+    </ul>
+    <p>&nbsp;</p>
+    <p>After this command, you have to enter in your terminal some information like:</p>
+    <ul>
+        <li><p>The name of the project - I used <strong>react-responsive-navbar</strong></p></li>
+        <li><p>Select the framework - we use React for this project</p></li>
+        <li><p>Select a variant - we use Vanilla JavaScript for this tutorial</p></li>
+    </ul>
+    <p>&nbsp;</p>
+    <p>At this point, we have to open the project with Visual Studio Code or in any other code editor, you can use the following commands by your terminal:</p>
+    <ul>
+        <li><p><em>cd react-responsive-navbar</em></p></li>
+        <li><p><em>code .</em></p></li>
+    </ul>
+    <p>&nbsp;</p>
+    <p>Once the project is opened in Visual Studio Code, we have to install all the required packages and then run the project in the local server. You can do it by opening a new terminal in Visual Studio Code and then running these commands:</p>
+    <ul>
+        <li><p><em>npm install</em></p></li>
+        <li><p><em>npm run dev</em></p></li>
+    </ul>
+    <p>&nbsp;</p>
+    <p>There we go, our project is running in the local environment.</p>
+    <p>&nbsp;</p>
+    <p>Let’s now clean up our project, open the file <strong>src/index.css</strong> and remove all the code. Do the same for the file the file <strong>src/App.css</strong> and <strong>src/App.jsx</strong></p>
+    <p>&nbsp;</p>
+    <p>It is time to create App component in <strong>App.jsx</strong>, open this file and add the following code:</p>
+    <!-- Codeblock Start -->
+    <p>&nbsp;</p>
+    <p class="content__code-file"><strong>src/App.jsx</strong></p>
+    <div class="codeblock">
+        <div class="codeblock__container">
+<pre class="codeblock__pre">
+<code class="codeblock__code">
+const App = () => {
+    return (
+        &lt;&gt;
+            &lt;h1&gt;Hello React&lt;/h1&gt;
+        &lt;/&gt;
+    )
+}
+    
+export default App;
+</code>
+</pre>
+        </div>
+    </div>
+    <!-- Codeblock End -->
+    <p>It is time to install SASS and to create some style rules that will help us to keep our navigation responsive and our code more readable. Open the terminal in Visual Studio Code and install sass with the following command:</p>
+    <ul>
+        <li><p><em>npm install sass</em></p></li>
+    </ul>
+    <p>&nbsp;</p>
+    <p>Now, inside the folder <strong>assets</strong> you have to create two sub folders: <strong>scss</strong> and <strong>abstract</strong>. Inside the folder <strong>abstract</strong> we are going to create the file <strong>_mixins.scss</strong> where we create style rules that can be reused, for this project a <a class="link" rel="noreferrer noopener" href="https://sass-lang.com/documentation/at-rules/mixin/" target="_blank">mixin</a> that allows us to work through the breakpoints. In this tutorial we use only the breakpoint <strong>@include('md')</strong> but we like the idea to keep the other ones, so you can customise your navigation menu.</p>
+    <!-- Codeblock Start -->
+    <p>&nbsp;</p>
+    <p class="content__code-file"><strong>src/assets/scss/abstract/_mixins.scss</strong></p>
+    <div class="codeblock">
+        <div class="codeblock__container">
+<pre class="codeblock__pre">
+<code class="codeblock__code">
+/**
+* Create a mixin that works for
+* media queries in the following breakpoints:
+*           xs
+*           sm
+*           md
+*           lg
+*           xl
+*           xxl
+*
+* This project follow the logic of responsive-design
+*/
+@mixin respond($breakpoint) {
+    @if $breakpoint == xs {
+        @media only screen and (max-width: 380px) { @content };
+    }
+    @if $breakpoint == sm {
+        @media only screen and (max-width: 575px) { @content };
+    }
+    @if $breakpoint == md {
+        @media only screen and (max-width: 767px) { @content };
+    }
+    @if $breakpoint == lg {
+        @media only screen and (max-width: 991px) { @content };
+    }
+    @if $breakpoint == xl {
+        @media only screen and (max-width: 1199px) { @content };
+    }
+    @if $breakpoint == xxl {
+        @media only screen and (max-width: 1499px) { @content };
+    }
+}    
+</code>
+</pre>
+        </div>
+    </div>
+    <!-- Codeblock End -->
+    <p>Let’s also create the <strong>_variables.scss</strong> where we can store some variables that we reuse through the project as you can see in the following example.</p>
+    <!-- Codeblock Start -->
+    <p>&nbsp;</p>
+    <p class="content__code-file"><strong>src/assets/scss/abstract/_variables.scss</strong></p>
+    <div class="codeblock">
+        <div class="codeblock__container">
+<pre class="codeblock__pre">
+<code class="codeblock__code">
+// Colors
+$black: #000;
+$red: #A21D21;
+$white: #FFF;
+</code>
+</pre>
+        </div>
+    </div>
+    <!-- Codeblock End -->
+    <p>Last style setup, we need a <strong>_base.scss</strong> and a <strong>_typography.scss</strong> files that will help to reset CSS default style in the browser rules and reuse some important classes through our project.</p>
+    <!-- Codeblock Start -->
+    <p>&nbsp;</p>
+    <p class="content__code-file"><strong>src/assets/scss/base/_base/scss</strong></p>
+    <div class="codeblock">
+        <div class="codeblock__container">
+<pre class="codeblock__pre">
+<code class="codeblock__code">
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+} 
+</code>
+</pre>
+        </div>
+    </div>
+    <!-- Codeblock End -->
+    <!-- Codeblock Start -->
+    <p>&nbsp;</p>
+    <p class="content__code-file"><strong>src/assets/scss/base/_typography.scss</strong></p>
+    <div class="codeblock">
+        <div class="codeblock__container">
+<pre class="codeblock__pre">
+<code class="codeblock__code">
+// H tags
+.h1 {
+    font-size: 5rem;
+}
+
+
+.h2 {
+    font-size: 4rem;
+}
+
+
+.h3 {
+    font-size: 3.5rem;
+}
+
+
+.h4 {
+    font-size: 3rem;
+}
+
+
+.body {
+    font-size: 2.5rem;
+}
+
+
+.body-md {
+    font-size: 2.2rem;
+}
+
+
+.p {
+    font-size: 2rem;
+}
+
+
+.body-sm {
+    font-size: 1.8rem;
+}
+
+
+.body-xs {
+    font-size: 1.4rem;
+}
+
+
+// List
+.list-menu {
+    list-style: none;
+}
+
+
+// Link
+.link-no-style {
+    color: $black;
+    text-decoration: none;
+}    
+</code>
+</pre>
+        </div>
+    </div>
+    <!-- Codeblock End -->
+    <p>At this stage, we have to call and include our new files and we do it creating a new file as you can see in the following example:</p>
+    <!-- Codeblock Start -->
+    <p>&nbsp;</p>
+    <p class="content__code-file"><strong>src/assets/scss/main.scss</strong></p>
+    <div class="codeblock">
+        <div class="codeblock__container">
+<pre class="codeblock__pre">
+<code class="codeblock__code">
+// Import abstract files
+@import './abstract/mixins';
+@import './abstract/variables';
+
+
+// Import base files
+@import './base/base';
+@import './base/typography';  
+</code>
+</pre>
+        </div>
+    </div>
+    <!-- Codeblock End -->
+    <p>Last but not least, we have to import <strong>BrowserRouter</strong> to the file <strong>main.jxs</strong> because our navigation will use the <strong>Routers</strong> and the <strong>Links</strong>.</p>
+    <!-- Codeblock Start -->
+    <p>&nbsp;</p>
+    <p class="content__code-file"><strong>src/main.jsx</strong></p>
+    <div class="codeblock">
+        <div class="codeblock__container">
+<pre class="codeblock__pre">
+<code class="codeblock__code">
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App.jsx'
+import './index.css'
+
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+    &lt;BrowserRouter&gt;
+        &lt;App /&gt;
+    &lt;/BrowserRouter&gt;,
+)      
+</code>
+</pre>
+        </div>
+    </div>
+    <!-- Codeblock End -->
+    <p>The setup of our project is ready, it is time to create the navigation menu.</p>
+    <p>&nbsp;</p>
+    <h2 id="2">Create nav component</h2>
+    <p>As you know, in React everything is a component, so let’s create our component <strong>navbar</strong>. First, we are going to create the folder <strong>components</strong> inside the folder <strong>src</strong>. Then, we will create the folder of our component, its JSX file as well as its SCSS file. This is the approach that we use at <em>DevWithIt</em> when we create a component with React but feel free to use your way too.</p>
+    <!-- Codeblock Start -->
+    <p>&nbsp;</p>
+    <p class="content__code-file"><strong>src/components/Navbar/Navbar.jsx</strong></p>
+    <div class="codeblock">
+        <div class="codeblock__container">
+<pre class="codeblock__pre">
+<code class="codeblock__code">
+import './Navbar.scss';
+
+const Navbar = () => {
+    return(
+        &lt;nav className="navbar"&gt;
+            &lt;h1&gt;This is the Navbar component&lt;/h1&gt;
+        &lt;/nav&gt;
+    )
+}
+
+export default Navbar;    
+</code>
+</pre>
+        </div>
+    </div>
+    <!-- Codeblock End -->
+    <!-- Codeblock Start -->
+    <p>&nbsp;</p>
+    <p class="content__code-file"><strong>src/components/navbar/Navbar.scss</strong></p>
+    <div class="codeblock">
+        <div class="codeblock__container">
+<pre class="codeblock__pre">
+<code class="codeblock__code">
+.navbar {
+    border: 1px solid #f00;
+}       
+</code>
+</pre>
+        </div>
+    </div>
+    <!-- Codeblock End -->
+    <p>We have now to import our Navbar component to App.jsx and the <strong>main.scss</strong> file as you can see in the following example.</p>
+    <!-- Codeblock Start -->
+    <p>&nbsp;</p>
+    <p class="content__code-file"><strong>src/App.jsx</strong></p>
+    <div class="codeblock">
+        <div class="codeblock__container">
+<pre class="codeblock__pre">
+<code class="codeblock__code">
+import Navbar from "./components/navbar/navbar";
+
+import './assets/scss/main.scss';
+
+const App = () => {
+    return (
+        &lt;&gt;
+            &lt;Navbar /&gt;
+        &lt;/&gt;
+    )
+}
+
+export default App;      
+</code>
+</pre>
+        </div>
+    </div>
+    <!-- Codeblock End -->
+    <p>Now, if you run your project again with <strong>npm run dev</strong>, you should see our navigation. Well, it is time to create our navigation. In this part of this guide of <strong>DevWithIt</strong>, I provide you with a basic responsive navigation menu. You can then use this code and customise for your personal projects.</p>
+    <!-- Codeblock Start -->
+    <p>&nbsp;</p>
+    <p class="content__code-file"><strong>src/components/Navbar/Navbar.jsx</strong></p>
+    <div class="codeblock">
+        <div class="codeblock__container">
+<pre class="codeblock__pre">
+<code class="codeblock__code">
+import { Link } from 'react-router-dom';
+
+import './Navbar.scss';
+
+const Navbar = () => {
+    return (
+        &lt;nav className='navbar'&gt;
+            &lt;div className="navbar__toggle"&gt;
+                &lt;label htmlFor="menu" aria-label="Main Navigation Menu"&gt;&lt;/label&gt;
+                &lt;input id="menu" className="navbar__input" name="menu" type="checkbox" aria-label="Main Navigation Menu" /&gt;
+                &lt;span className="navbar__span navbar__span--empty"&gt;&lt;/span&gt;
+                &lt;span className="navbar__span"&gt;&lt;/span&gt;
+                &lt;span className="navbar__span"&gt;&lt;/span&gt;
+                &lt;ul className="navbar__menu list-menu"&gt;
+                    &lt;li className="navbar__container-logo"&gt;&lt;h2&gt;&lt;Link className="navbar__logo link-no-style h1" to="/"&gt;React Responsive Navbar&lt;/Link&gt;&lt;/h2&gt;&lt;/li&gt;
+                    &lt;li className="navbar__menu-item"&gt;&lt;Link className="body-md link-no-style" to="/"&gt;Home&lt;/Link&gt;&lt;/li&gt;
+                    &lt;li className="navbar__menu-item"&gt;&lt;Link className="body-md link-no-style" to="/about"&gt;About&lt;/Link&gt;&lt;/li&gt;
+                    &lt;li className="navbar__menu-item"&gt;&lt;Link className="body-md link-no-style" to="/portfolio"&gt;Portfolio&lt;/Link&gt;&lt;/li&gt;
+                    &lt;li className="navbar__menu-item"&gt;&lt;Link className="body-md link-no-style" to="/contact"&gt;Contact&lt;/Link&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/nav&gt;
+    )
+}
+
+export default Navbar;    
+</code>
+</pre>
+        </div>
+    </div>
+    <!-- Codeblock End -->
+    <!-- Codeblock Start -->
+    <p>&nbsp;</p>
+    <p class="content__code-file"><strong>src/components/Navbar/Navbar.scss</strong></p>
+    <div class="codeblock">
+        <div class="codeblock__container">
+<pre class="codeblock__pre">
+<code class="codeblock__code">
+@import '../../assets/scss/abstract/mixins';
+@import '../../assets/scss/abstract/variables';
+
+
+.navbar {
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid $red;
+
+
+    &__toggle {
+        @include respond(md) {
+            display: block;
+            position: relative;
+            top: 0;
+            left: 2%;;
+            z-index: 1;
+            -webkit-user-select: none;
+            user-select: none;
+
+
+            input:checked ~ span:nth-last-child(3) {
+                opacity: 0;
+                transform: rotate(0deg) scale(0.2, 0.2);
+            }
+
+
+            input:checked ~ span:nth-last-child(2) {
+                transform: rotate(-45deg) translate(0, 1px);
+            }
+        }
+    }
+
+
+    &__input,
+    &__span {
+        display: none;
+        cursor: pointer;
+    }
+
+
+    &__input {
+        @include respond(md) {
+            display: block;
+            width: 5.5rem;
+            height: 5rem;
+            position: absolute;
+            top: -7px;
+            left: -5px;
+            opacity: 0;
+            z-index: 2;
+            -webkit-touch-callout: none;
+        }
+    }
+
+
+    input:checked ~ ul {
+        @include respond(md) {
+            transform: none;
+        }
+    }
+
+
+    &__span {
+        @include respond(md) {
+            position: relative;
+            display: block;
+            width: 4rem;
+            height: .5rem;
+            margin-bottom: 5px;
+            background: $black;
+            border: 2px solid $black;
+            border-radius: 5px;
+            z-index: 1;
+            transform-origin: 4px 0px;
+            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+                        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+                        opacity 0.55s ease;
+
+
+            &:first-child {
+                transform-origin: 0% 0%;
+            }
+
+
+            &:nth-last-child(2) {
+                transform-origin: 0% 100%;
+            }
+        }
+
+
+        &--empty {
+            @include respond(md) {
+                border: 2px solid $black;
+                background-color: transparent;
+            }
+        }
+    }
+
+
+    &__container-logo {
+        margin-bottom: 2rem;
+    }
+
+
+    &__logo {
+        font-family: 'Dancing Script', cursive;
+    }
+
+
+    &__menu-item {
+        display: inline-block;
+        padding: .5rem;
+        margin: 0 1rem;
+
+
+        @include respond(md) {
+            display: block;
+        }
+    }
+
+
+    &__menu {
+        list-style-type: none;
+
+
+        @include respond(md) {
+            position: absolute;
+            width: 90%;
+            margin: -100px 0 0 -50px;
+            padding: 50px;
+            padding-top: 125px;
+            text-align: center;
+
+
+            background: $white;
+            list-style-type: none;
+            -webkit-font-smoothing: antialiased;
+
+
+            transform-origin: 0% 0%;
+            transform: translate(-100%, 0);
+
+
+            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        }
+    }
+
+
+}       
+</code>
+</pre>
+        </div>
+    </div>
+    <!-- Codeblock End -->
+    <p>&nbsp;</p>
+    <h2 id="3">How to create a responsive navbar with React and SCSS</h2>
+    <p>That’s it, our responsive navigation menu in React is ready. It is a very simple setup but it can help you to create a great navigation menu following all the design requirements for your project.</p>
+    <p>&nbsp;</p>
+    <p>You can download or see the code by the GitHub repository <a class="link" rel="noreferrer noopener" href="https://github.com/MarcoValeri/react-responsive-navbar" target="_blank">React Responsive Navbar</a>.</p>
+    <p>&nbsp;</p>
+    <p>During this guide, we used extra effort for setuping the style, which will help you when your project gets bigger.</p>
+    <p>If you want to deploy your next React project on Google Cloud, feel free to use our guide about <a class="link" rel="noreferrer noopener" href="https://devwithit.com/guide/deploy-react-app-with-vite-to-google-cloud" target="_blank">Deploy React App with Vite to Google Cloud App Engine</a>.</p>
+    <p>&nbsp;</p>
+    <p>Happy coding.</p>
+</div>
