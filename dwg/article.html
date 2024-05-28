@@ -1,8 +1,13 @@
-<p>In Go programming languages, variables store data values. Just like in any other programming language, a variable acts as a named storage location in memory that can hold a specific value.</p>
+<p>Go constants are special variables with fixed values that remain unchanged throughout your program's execution. They offer a powerful way to improve code readability, prevent accidental errors, and make your codebase easier to maintain. </p>
 <p>&nbsp;</p>
-<p>Golang allows you to declare variables in different ways.</p>
+<p>In this new guide of <em>DevWithGo</em>, we'll dive into how to define and use constants in Go, exploring best practices, different declaration methods, advanced techniques like grouping constants, and the intriguing concept of the iota identifier.</p>
 <p>&nbsp;</p>
-<p>Unlike some languages, Go needs you to specify the data type (like <em>int</em>, <em>string</em>, etc.) for each variable you create.</p>
+<h2>Go Constants</h2>
+<p><a class="link" rel="noreferrer noopener" href="https://go.dev/blog/constants" target="_blank">Go supports constant variables</a>.</p>
+<p>&nbsp;</p>
+<p>In Golang, constants have fixed values that do not change during the execution of a program.</p>
+<p>&nbsp;</p>
+<p>It is possible to declare a constant in Go using the symbol <em>const</em>.</p>
 <!-- Codeblock Start -->
 <div class="codeblock">
     <div class="codeblock__container-code-file">
@@ -13,17 +18,14 @@
 <pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
 
 <span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">productID</span> <span class="codeblock__g-package-name">int</span> = <span class="codeblock__g-variable-data">1</span>
-    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">productName</span> <span class="codeblock__g-package-name">string</span> = <span class="codeblock__o-string">"Go book"</span>
-    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">productPrice</span> <span class="codeblock__g-package-name">float64</span> = <span class="codeblock__g-variable-data">10.99</span>
+    <span class="codeblock__b-package">const</span> <span class="codeblock__b-package-fmt">hoursInDay</span> <span class="codeblock__g-package-name">int</span> = <span class="codeblock__g-variable-data">24</span>
 <span class="codeblock__y-bracket">}</span>
 </code></pre>
         </div>
     </div>
 </div>
 <!-- Codeblock End -->
-<p>&nbsp;</p>
-<p><em>var</em> keyword is used to create the variables of a particular type. If <em>type</em> is omitted, Go will get the data type by its value.</p>
+<p>Go support type and untyped constants, it is possible to give a data type or omit it. If you omit the data type, Go compiler will infer the data type by the value of the constant variable.</p>
 <!-- Codeblock Start -->
 <div class="codeblock">
     <div class="codeblock__container-code-file">
@@ -34,17 +36,53 @@
 <pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
 
 <span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">website</span> = <span class="codeblock__o-string">"devwithgo"</span>
+    <span class="codeblock__b-package">const</span> <span class="codeblock__b-package-fmt">hoursInDay</span> <span class="codeblock__g-package-name">int</span> = <span class="codeblock__g-variable-data">24</span> <span class="codeblock__g-comment">// data type int</span>
+    <span class="codeblock__b-package">const</span> <span class="codeblock__b-package-fmt">minutesInHour</span> = <span class="codeblock__g-variable-data">60</span> <span class="codeblock__g-comment">// data type int</span>
 <span class="codeblock__y-bracket">}</span>
 </code></pre>
         </div>
     </div>
 </div>
 <!-- Codeblock End -->
-<p>In the above case, the variable <em>website</em> has a <em>string data type</em>.</p>
+<p>As a <em>var</em> variable, <em>const</em> variable declarations are allowed at the package level, meaning outside of any functions. This makes the variables accessible throughout the entire package.</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">const</span> <span class="codeblock__b-package-fmt">projectName</span> <span class="codeblock__g-package-name">string</span> = <span class="codeblock__g-variable-data">"DevWithGo.dev"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">projectName</span><span class="codeblock__p-bracket">)</span>
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
 <p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+DevWithGo.dev</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
 <p>&nbsp;</p>
-<p>With the <em>var</em> keyword, it is possible to create multiple variables at once.</p>
+<h2>Go group of constants and iota</h2>
+<p>Go provides a concise syntax for declaring multiple constants together using a block enclosed in parentheses. This allows you to group related constants for better organisation and readability in your code.</p>
 <!-- Codeblock Start -->
 <div class="codeblock">
     <div class="codeblock__container-code-file">
@@ -55,22 +93,17 @@
 <pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
 
 <span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">userOne</span>, <span class="codeblock__b-package-fmt">userTwo</span> = <span class="codeblock__o-string">"Mark"</span>, <span class="codeblock__o-string">"Alex"</span>
-    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">name</span>, <span class="codeblock__b-package-fmt">age</span> = <span class="codeblock__o-string">"Mark"</span>, <span class="codeblock__g-variable-data">40</span>
+    <span class="codeblock__b-package">const</span> (
+        <span class="codeblock__b-package-fmt">passwordMaxLength</span> = <span class="codeblock__g-variable-data">20</span>
+        <span class="codeblock__b-package-fmt">loginMaxFailedAttempts</span> = <span class="codeblock__g-variable-data">5</span>
+    )
 <span class="codeblock__y-bracket">}</span>
 </code></pre>
         </div>
     </div>
 </div>
 <!-- Codeblock End -->
-<p>The above code demonstrates declaring multiple variables with <em>var</em>. Here, both <em>userOne</em> and <em>userTwo</em> have the data type string. Likewise, <em>name</em> is a string, while <em>age</em> is declared as an integer (int).</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>In Go, it is possible to declare a variable without explicitly initializing it. In this case, the variable receives a default value specific to its data type.</p>
-<!-- Codeblock End -->
-<p>In the above case, the variable <em>website</em> has a <em>string data type</em>.</p>
-<p>&nbsp;</p>
-<p>With the <em>var</em> keyword, it is possible to create multiple variables at once.</p>
+<p>Declaring constants within a block is particularly useful when the constants are related and their values depend on each other. Within a constant block, you can use previously declared constants in the expressions of subsequent constants. Note that the order of declaration matters, as a constant can only reference constants that have already been declared within the same block.</p>
 <!-- Codeblock Start -->
 <div class="codeblock">
     <div class="codeblock__container-code-file">
@@ -80,194 +113,103 @@
         <div class="codeblock__container">
 <pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
 
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
 <span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">productID</span> <span class="codeblock__g-package-name">int</span>  <span class="codeblock__g-comment">// The default value is 0</span>
-    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">productName</span> <span class="codeblock__g-package-name">string</span>  <span class="codeblock__g-comment">// The default value is an empty string</span>
-    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">productPrice</span> <span class="codeblock__g-package-name">float64</span>  <span class="codeblock__g-comment">// The default value is 0.0</span>
-    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">productAvailable</span> <span class="codeblock__g-package-name">bool</span> <span class="codeblock__g-comment">// The default value is false</span>
+    <span class="codeblock__b-package">const</span> (
+        <span class="codeblock__b-package-fmt">hoursPerDay</span> = <span class="codeblock__g-variable-data">24</span>
+        <span class="codeblock__b-package-fmt">minutesPerDay</span> = <span class="codeblock__b-package-fmt">hoursPerDay</span> * <span class="codeblock__g-variable-data">60</span>
+        <span class="codeblock__b-package-fmt">secondsPerDay</span> = <span class="codeblock__b-package-fmt">minutesPerDay</span> * <span class="codeblock__g-variable-data">60</span>
+    )
+
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Hours per day:"</span>, <span class="codeblock__b-package-fmt">hoursPerDay</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Minutes per day:"</span>, <span class="codeblock__b-package-fmt">minutesPerDay</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Seconds per day:"</span>, <span class="codeblock__b-package-fmt">secondsPerDay</span><span class="codeblock__p-bracket">)</span>
 <span class="codeblock__y-bracket">}</span>
 </code></pre>
         </div>
     </div>
 </div>
 <!-- Codeblock End -->
-<p>When you declare a variable in Go without explicitly assigning a value, it automatically receives a default value depending on its data type. These defaults include:</p>
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+Hours per day: 24
+Minutes per day: 1440
+Seconds per day: 86400</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>When working with constants in Go, it's important to understand the concept of <em>iota</em>. <a class="link" rel="noreferrer noopener" href="https://go.dev/wiki/Iota" target="_blank">Iota</a> is a special identifier that simplifies the declaration of auto-incrementing integer constants within a const block.</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__b-package">const</span> (
+        <span class="codeblock__b-package-fmt">zero</span> = <span class="codeblock__b-package">iota</span>
+        <span class="codeblock__b-package-fmt">one</span>
+        <span class="codeblock__b-package-fmt">two</span>
+        <span class="codeblock__b-package-fmt">three</span>
+    )
+
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(<span class="codeblock__b-package-fmt">zero</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(<span class="codeblock__b-package-fmt">one</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(<span class="codeblock__b-package-fmt">two</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(<span class="codeblock__b-package-fmt">three</span><span class="codeblock__p-bracket">)</span>
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+0
+1
+2
+3</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<h2>Why use constants in Go?</h2>
+<p>Constants are a fundamental concept in programming, and Go is no exception. They offer several key benefits that can significantly improve the quality of your code.</p>
+<p>There are some benefits of using constants variable in Golang, like:</p>
 <ul>
-    <li>Integers: 0</li>
-    <li>Strings: empty string ("")</li>
-    <li>Floating-point numbers (float64): 0.0</li>
-    <li>Booleans: false</li>
+    <li><strong>Performance:</strong> constants are determined at compile time, not at runtime, this can improve the performance</li>
+    <li><strong>Readability:</strong> values of the constants never change, this improve the readability of your code</li>
+    <li><strong>Maintainability:</strong> when you need to update a value that's used in multiple places, you only have to change it in the constant declaration, making maintenance a breeze</li>
+    <li><strong>Error Prevention:</strong> the immutability of constants prevents accidental modifications, helping you avoid introducing errors into your code</li>
 </ul>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>In Go, you can declare variables using the shorthand := operator. This is a common way to declare and initialize a variable in a single line. The data type of the variable is inferred from the assigned value.</p>
-<!-- Codeblock Start -->
-<div class="codeblock">
-    <div class="codeblock__container-code-file">
-        <p class="codeblock__code-file">main.go</p>
+<div class="prev-next-guide">
+    <div class="prev-next-guide__container-prev">
+        <a class="p-xl link" rel="noreferrer noopener" href="https://www.devwithgo.dev/guide/go-variables" >&larr; Go variables</a>
     </div>
-    <div class="codeblock__wrapper">
-        <div class="codeblock__container">
-<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
-
-<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package-fmt">productName</span> := <span class="codeblock__o-string">"Go book"</span>
-<span class="codeblock__y-bracket">}</span>
-</code></pre>
-        </div>
+    <div class="prev-next-guide__container-next">
+        <p class="p-xl">Go data types - coming soon &rarr;</p>
     </div>
 </div>
-<!-- Codeblock End -->
-<p>In the above example, the variable <em>productName</em> has a string data type.</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>With the shorthand <em>:=</em>, it is possible to declare a variable only inside the function, but you can not use it outside the function.</p>
-<p>Indeed, you can use the var keyword for declaring a variable outside the function.</p>
-<!-- Codeblock Start -->
-<div class="codeblock">
-    <div class="codeblock__container-code-file">
-        <p class="codeblock__code-file">main.go</p>
-    </div>
-    <div class="codeblock__wrapper">
-        <div class="codeblock__container">
-<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
-
-<span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">productId</span> <span class="codeblock__g-package-name">int</span>
-
-<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package-fmt">productId</span> = <span class="codeblock__g-variable-data">1</span>
-    <span class="codeblock__b-package-fmt">productName</span> := <span class="codeblock__o-string">"Go book"</span>
-<span class="codeblock__y-bracket">}</span>
-</code></pre>
-        </div>
-    </div>
-</div>
-<!-- Codeblock End -->
-<p>&nbsp;</p>
-<p>The <em>fmt</em> package in Go is a standard library package that provides functions for formatted input and output operations. This means it allows you to format and print the values of variables, along with other data, to the console or other output streams.</p>
-<!-- Codeblock Start -->
-<div class="codeblock">
-    <div class="codeblock__container-code-file">
-        <p class="codeblock__code-file">main.go</p>
-    </div>
-    <div class="codeblock__wrapper">
-        <div class="codeblock__container">
-<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
-
-<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
-
-<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package-fmt">productID</span> := <span class="codeblock__g-variable-data">1</span>
-    <span class="codeblock__b-package-fmt">productName</span> := <span class="codeblock__o-string">"Go book"</span>
-    <span class="codeblock__b-package-fmt">productPrice</span> := <span class="codeblock__g-variable-data">10.99</span>
-    <span class="codeblock__b-package-fmt">productAvailable</span> := <span class="codeblock__b-package">true</span>
-
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product details:"</span><span class="codeblock__p-bracket">)</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"ID:"</span>, <span class="codeblock__b-package-fmt">productID</span><span class="codeblock__p-bracket">)</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"name:"</span>, <span class="codeblock__b-package-fmt">productName</span><span class="codeblock__p-bracket">)</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"price:"</span>, <span class="codeblock__b-package-fmt">productPrice</span><span class="codeblock__p-bracket">)</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"available:"</span>, <span class="codeblock__b-package-fmt">productAvailable</span><span class="codeblock__p-bracket">)</span>
-<span class="codeblock__y-bracket">}</span>
-</code></pre>
-        </div>
-    </div>
-</div>
-<!-- Codeblock End -->
-<p>&nbsp;</p>
-<!-- Terminal Start -->
-<div class="terminal">
-    <div class="terminal__container-code-file">
-        <p class="terminal__code-file">Terminal</p>
-    </div>
-    <div class="terminal__wrapper">
-<pre>
-<code><span class="terminal__grey">$</span> go run main.go
-Product details:
-ID: 1
-name: Go book
-price: 10.99
-available: true    
-</code>
-</pre>
-    </div>
-</div>
-<!-- Terminal End -->
-<p>&nbsp;</p>
-<p>Go enforces type safety, meaning once a variable is initialized with a specific data type, you can only assign new values that are compatible with that type. This helps prevent errors caused by accidentally assigning incompatible data types.</p>
-<!-- Codeblock Start -->
-<div class="codeblock">
-    <div class="codeblock__container-code-file">
-        <p class="codeblock__code-file">main.go</p>
-    </div>
-    <div class="codeblock__wrapper">
-        <div class="codeblock__container">
-<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
-
-<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
-
-<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package-fmt">productName</span> := <span class="codeblock__o-string">"Go book"</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">productName</span><span class="codeblock__p-bracket">)</span>
-
-    <span class="codeblock__b-package-fmt">productName</span> = <span class="codeblock__o-string">"Go book new edition"</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">productName</span><span class="codeblock__p-bracket">)</span>
-<span class="codeblock__y-bracket">}</span>
-</code></pre>
-        </div>
-    </div>
-</div>
-<!-- Codeblock End -->
-<p>&nbsp;</p>
-<!-- Terminal Start -->
-<div class="terminal">
-    <div class="terminal__container-code-file">
-        <p class="terminal__code-file">Terminal</p>
-    </div>
-    <div class="terminal__wrapper">
-<pre>
-<code><span class="terminal__grey">$</span> go run main.go
-Go book
-Go book new edition        
-</code>
-</pre>
-    </div>
-</div>
-<!-- Terminal End -->
-<p>&nbsp;</p>
-<p>Go is a statically typed language. This means the data type of a variable is determined during its declaration, and it cannot be changed later.</p>
-<!-- Codeblock Start -->
-<div class="codeblock">
-    <div class="codeblock__container-code-file">
-        <p class="codeblock__code-file">main.go</p>
-    </div>
-    <div class="codeblock__wrapper">
-        <div class="codeblock__container">
-<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
-
-<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
-
-<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package-fmt">productID</span> := <span class="codeblock__g-variable-data">1</span>
-    <span class="codeblock__b-package-fmt">productID</span> = <span class="codeblock__o-string">"1"</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">productID</span><span class="codeblock__p-bracket">)</span>
-<span class="codeblock__y-bracket">}</span>
-</code></pre>
-        </div>
-    </div>
-</div>
-<!-- Codeblock End -->
-<p>&nbsp;</p>
-<!-- Terminal Start -->
-<div class="terminal">
-    <div class="terminal__container-code-file">
-        <p class="terminal__code-file">Terminal</p>
-    </div>
-    <div class="terminal__wrapper">
-<pre>
-<code><span class="terminal__grey">$</span> go run main.go
-./main.go:7:14: cannot use "1" (untyped string constant) as int value in assignment  
-</code>
-</pre>
-    </div>
-</div>
-<!-- Terminal End -->
