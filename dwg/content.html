@@ -1,6 +1,6 @@
 <!-- Link -->
 <!-- Do Follow -->
-<a class="link" rel="noreferrer noopener" href="https://go.dev/wiki/Iota" target="_blank">Iota</a>
+<a class="link" rel="noreferrer noopener" href="https://go.dev/ref/spec#Numeric_types" target="_blank">numeric data types</a>
 <!-- Amazon -->
 <a class="link" rel="sponsored nofollow" target="_blank" href="https://amzn.to/47m9482">The Power of Discipline di Daniel Walter</a>
 
@@ -13,6 +13,7 @@
     <li><a class="link" href="#1"></a></li>
 </ol>
 
+<p>&nbsp;</p>
 <!-- Codeblock Start -->
 <div class="codeblock">
     <div class="codeblock__container-code-file">
@@ -53,13 +54,40 @@ echo "Hello " . $name;
 <span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
 
 <span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__g-comment">// Declare a variable representing a website URL</span>
+
+    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">name</span> <span class="codeblock__g-package-name">string</span> = <span class="codeblock__o-string">"Marco"</span>
+    <span class="codeblock__b-package-fmt">surname</span> := <span class="codeblock__o-string">"Valeri"</span>
+
+    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">userOneID</span> <span class="codeblock__g-package-name">int</span> = <span class="codeblock__g-variable-data">1</span>
+    <span class="codeblock__b-package-fmt">userTwoID</span> := <span class="codeblock__g-variable-data">2</span>
+    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">userThreeID</span> <span class="codeblock__g-package-name">int</span>
+
+    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">productOne</span> <span class="codeblock__g-package-name">float64</span> = <span class="codeblock__g-variable-data">9.99</span>
+    <span class="codeblock__b-package-fmt">productTwo</span> := <span class="codeblock__g-variable-data">7.47</span>
+    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">productThree</span> <span class="codeblock__g-package-name">float64</span>
+
+    <span class="codeblock__b-package-fmt">thisIsTrue</span> := <span class="codeblock__b-package">true</span>
+    <span class="codeblock__b-package-fmt">thisIsFalse</span> := <span class="codeblock__b-package">true</span>
+    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">thisIsFalseToo</span> <span class="codeblock__g-package-name">bool</span>
+
+    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">complexNumberOne</span> <span class="codeblock__g-package-name">complex128</span> = <span class="codeblock__y-func-name">complex</span><span class="codeblock__p-bracket">(</span><span class="codeblock__g-variable-data">10</span>, <span class="codeblock__g-variable-data">2</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">complexNumberTwo</span> <span class="codeblock__g-package-name">complex64</span> = <span class="codeblock__y-func-name">complex</span><span class="codeblock__p-bracket">(</span><span class="codeblock__g-variable-data">6</span>, <span class="codeblock__g-variable-data">3</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">complexNumberThree</span> <span class="codeblock__g-package-name">complex128</span>
+
     <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Hello World"</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">productOne</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__y-func-name">len</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">name</span><span class="codeblock__p-bracket"><span class="codeblock__p-bracket">))</span></span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Username:"</span>, <span class="codeblock__b-package-fmt">userName</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"email: </span><span class="codeblock__b-package-fmt">%s </span><span class="codeblock__o-string"> - password: </span><span class="codeblock__b-package-fmt">%s</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">userEmail</span>, <span class="codeblock__b-package-fmt">userPassword</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product ID: </span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productId</span><span class="codeblock__p-bracket">)</span>
 <span class="codeblock__y-bracket">}</span>
 </code></pre>
         </div>
     </div>
 </div>
 <!-- Codeblock End -->
+<p>&nbsp;</p>
 
 <p>&nbsp;</p>
 <!-- Terminal Start -->
