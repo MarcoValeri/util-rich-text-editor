@@ -89,8 +89,39 @@ echo "Hello " . $name;
     └── views/
         └── home.html
     └── go.mod
-    └── main.go  
-<span class="codeblock__y-bracket">}</span>
+    └── main.go
+    
+    <span class="codeblock__g-angle-brackets"><!</span><span class="codeblock__b-package">DOCTYPE</span> <span class="codeblock__b-package-fmt">html</span><span class="codeblock__g-angle-brackets">></span>
+    <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">html</span> <span class="codeblock__b-package-fmt">lang</span>=<span class="codeblock__o-string">"en"</span><span class="codeblock__g-angle-brackets">></span>
+    <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">head</span><span class="codeblock__g-angle-brackets">></span>
+        <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">meta</span> <span class="codeblock__b-package-fmt">charset</span>=<span class="codeblock__o-string">"UTF-8"</span><span class="codeblock__g-angle-brackets">></span>
+        <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">meta</span> <span class="codeblock__b-package-fmt">name</span>=<span class="codeblock__o-string">"viewport"</span> <span class="codeblock__b-package-fmt">content</span>=<span class="codeblock__o-string">"width=device-width, initial-scale=1.0"</span><span class="codeblock__g-angle-brackets">></span>
+        <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">title</span><span class="codeblock__g-angle-brackets">></span>Go Rich Text Editor With Quill<span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package-fmt">title</span><span class="codeblock__g-angle-brackets">></span>
+
+        <span class="codeblock__g-comment"><!-- Include the Quill stylesheet --></span>
+        <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">link</span> <span class="codeblock__b-package-fmt">href</span>=<span class="codeblock__o-string">"https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css"</span> <span class="codeblock__b-package-fmt">rel</span>=<span class="codeblock__o-string">"stylesheet"</span> <span class="codeblock__g-angle-brackets">/></span>
+
+        <span class="codeblock__g-comment"><!-- Include the Quill library --></span>
+        <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">script</span> <span class="codeblock__b-package-fmt">src</span>=<span class="codeblock__o-string">"https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"</span><span class="codeblock__g-angle-brackets">></span><span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">script</span><span class="codeblock__g-angle-brackets">></span>
+
+        <span class="codeblock__g-comment"><!-- Include the js file quill-editor.js --></span>
+        <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">script</span> <span class="codeblock__b-package-fmt">src</span>=<span class="codeblock__o-string">"/public/js/quill-editor.js"</span><span class="codeblock__g-angle-brackets">></span><span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">script</span><span class="codeblock__g-angle-brackets">></span>
+    <span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">head</span><span class="codeblock__g-angle-brackets">></span>
+    <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">body</span><span class="codeblock__g-angle-brackets">></span>
+        <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">h1</span><span class="codeblock__g-angle-brackets">></span>Go Rich Text Editor With Quill<span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">h1</span><span class="codeblock__g-angle-brackets">></span>
+        <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">form</span> <span class="codeblock__b-package-fmt">id</span>=<span class="codeblock__o-string">"form"</span> <span class="codeblock__b-package-fmt">method</span>=<span class="codeblock__o-string">"POST"</span><span class="codeblock__g-angle-brackets">></span>
+            <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">div</span><span class="codeblock__g-angle-brackets">></span>
+                <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">div</span> <span class="codeblock__b-package-fmt">id</span>=<span class="codeblock__o-string">"editor"</span><span class="codeblock__g-angle-brackets">></span><span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">div</span><span class="codeblock__g-angle-brackets">></span>
+                <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">input</span> <span class="codeblock__b-package-fmt">id</span>=<span class="codeblock__o-string">"form-content-input"</span> <span class="codeblock__b-package-fmt">type</span>=<span class="codeblock__o-string">"hidden"</span> <span class="codeblock__b-package-fmt">name</span>=<span class="codeblock__o-string">"form-content"</span> <span class="codeblock__g-angle-brackets">/></span>
+            <span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">div</span><span class="codeblock__g-angle-brackets">></span>
+            <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">br</span><span class="codeblock__g-angle-brackets">/></span>
+            <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">div</span><span class="codeblock__g-angle-brackets">></span>
+            <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">input</span> <span class="codeblock__b-package-fmt">type</span>=<span class="codeblock__o-string">"submit"</span> <span class="codeblock__b-package-fmt">name</span>=<span class="codeblock__o-string">"form-submit"</span> <span class="codeblock__b-package-fmt">value</span>=<span class="codeblock__o-string">"Send your content"</span> <span class="codeblock__g-angle-brackets">/></span>
+            <span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">div</span><span class="codeblock__g-angle-brackets">></span>
+        <span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">form</span><span class="codeblock__g-angle-brackets">></span>
+    <span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">body</span><span class="codeblock__g-angle-brackets">></span>
+    <span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">html</span><span class="codeblock__g-angle-brackets">></span>
+    <span class="codeblock__y-bracket">}</span>
 </code></pre>
         </div>
     </div>

@@ -159,44 +159,76 @@ touch views/home.html</code>
 <pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__g-angle-brackets"><!</span><span class="codeblock__b-package">DOCTYPE</span> <span class="codeblock__b-package-fmt">html</span><span class="codeblock__g-angle-brackets">></span>
 <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">html</span> <span class="codeblock__b-package-fmt">lang</span>=<span class="codeblock__o-string">"en"</span><span class="codeblock__g-angle-brackets">></span>
 <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">head</span><span class="codeblock__g-angle-brackets">></span>
-    <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">meta</span> <span class="codeblock__b-package-fmt">charset</span>=<span class="codeblock__o-string">"UTF-8"</span>><span class="codeblock__g-angle-brackets">></span>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go Rich Text Editor With Quill</title>
+    <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">meta</span> <span class="codeblock__b-package-fmt">charset</span>=<span class="codeblock__o-string">"UTF-8"</span><span class="codeblock__g-angle-brackets">></span>
+    <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">meta</span> <span class="codeblock__b-package-fmt">name</span>=<span class="codeblock__o-string">"viewport"</span> <span class="codeblock__b-package-fmt">content</span>=<span class="codeblock__o-string">"width=device-width, initial-scale=1.0"</span><span class="codeblock__g-angle-brackets">></span>
+    <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">title</span><span class="codeblock__g-angle-brackets">></span>Go Rich Text Editor With Quill<span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package-fmt">title</span><span class="codeblock__g-angle-brackets">></span>
 
+    <span class="codeblock__g-comment"><!-- Include the Quill stylesheet --></span>
+    <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">link</span> <span class="codeblock__b-package-fmt">href</span>=<span class="codeblock__o-string">"https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css"</span> <span class="codeblock__b-package-fmt">rel</span>=<span class="codeblock__o-string">"stylesheet"</span> <span class="codeblock__g-angle-brackets">/></span>
 
-    <!-- Include the Quill stylesheet -->
-    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+    <span class="codeblock__g-comment"><!-- Include the Quill library --></span>
+    <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">script</span> <span class="codeblock__b-package-fmt">src</span>=<span class="codeblock__o-string">"https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"</span><span class="codeblock__g-angle-brackets">></span><span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">script</span><span class="codeblock__g-angle-brackets">></span>
 
-
-    <!-- Include the Quill library -->
-    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
-
-
-    <!-- Include the js file quill-editor.js -->
-    <script src="/public/js/quill-editor.js"></script>
-</head>
-<body>
-    <h1>Go Rich Text Editor With Quill</h1>
-    <form id="form" method="POST">
-        <div>
-            <div id="editor"></div>
-            <input id="form-content-input" type="hidden" name="form-content" />
-        </div>
-        <br/>
-        <div>
-            <input type="submit" name="form-submit" value="Send your content" />
-        </div>
-    </form>
-</body>
-</html>   
+    <span class="codeblock__g-comment"><!-- Include the js file quill-editor.js --></span>
+    <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">script</span> <span class="codeblock__b-package-fmt">src</span>=<span class="codeblock__o-string">"/public/js/quill-editor.js"</span><span class="codeblock__g-angle-brackets">></span><span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">script</span><span class="codeblock__g-angle-brackets">></span>
+<span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">head</span><span class="codeblock__g-angle-brackets">></span>
+<span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">body</span><span class="codeblock__g-angle-brackets">></span>
+    <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">h1</span><span class="codeblock__g-angle-brackets">></span>Go Rich Text Editor With Quill<span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">h1</span><span class="codeblock__g-angle-brackets">></span>
+    <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">form</span> <span class="codeblock__b-package-fmt">id</span>=<span class="codeblock__o-string">"form"</span> <span class="codeblock__b-package-fmt">method</span>=<span class="codeblock__o-string">"POST"</span><span class="codeblock__g-angle-brackets">></span>
+        <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">div</span><span class="codeblock__g-angle-brackets">></span>
+            <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">div</span> <span class="codeblock__b-package-fmt">id</span>=<span class="codeblock__o-string">"editor"</span><span class="codeblock__g-angle-brackets">></span><span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">div</span><span class="codeblock__g-angle-brackets">></span>
+            <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">input</span> <span class="codeblock__b-package-fmt">id</span>=<span class="codeblock__o-string">"form-content-input"</span> <span class="codeblock__b-package-fmt">type</span>=<span class="codeblock__o-string">"hidden"</span> <span class="codeblock__b-package-fmt">name</span>=<span class="codeblock__o-string">"form-content"</span> <span class="codeblock__g-angle-brackets">/></span>
+        <span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">div</span><span class="codeblock__g-angle-brackets">></span>
+        <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">br</span><span class="codeblock__g-angle-brackets">/></span>
+        <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">div</span><span class="codeblock__g-angle-brackets">></span>
+        <span class="codeblock__g-angle-brackets"><</span><span class="codeblock__b-package">input</span> <span class="codeblock__b-package-fmt">type</span>=<span class="codeblock__o-string">"submit"</span> <span class="codeblock__b-package-fmt">name</span>=<span class="codeblock__o-string">"form-submit"</span> <span class="codeblock__b-package-fmt">value</span>=<span class="codeblock__o-string">"Send your content"</span> <span class="codeblock__g-angle-brackets">/></span>
+        <span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">div</span><span class="codeblock__g-angle-brackets">></span>
+    <span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">form</span><span class="codeblock__g-angle-brackets">></span>
+<span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">body</span><span class="codeblock__g-angle-brackets">></span>
+<span class="codeblock__g-angle-brackets"></</span><span class="codeblock__b-package">html</span><span class="codeblock__g-angle-brackets">></span>
 </code></pre>
         </div>
     </div>
 </div>
 <!-- Codeblock End -->
 <p>&nbsp;</p>
-<p></p>
-<p></p>
+<p>With our <strong>home.html</strong> template in place, let’s add some JavaScript code to the <strong>quill-editor.js</strong> file. This code will initialise the Quill library and handle the form submission, allowing us to retrieve the formatted text content when the user submits the form.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">public/js/quill-editor.js</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package-fmt">window</span>.<span class="codeblock__y-func-name">onload</span> = () <span class="codeblock__b-package">=></span> {
+    <span class="codeblock__g-comment">// Initialize Quill editor</span>
+    <span class="codeblock__b-package">const</span> <span class="codeblock__b-js-variable">quill</span> = <span class="codeblock__b-package">new</span> <span class="codeblock__y-func-name">Quill</span>(<span class="codeblock__o-string">'#editor'</span>, {
+        <span class="codeblock__b-package-fmt">theme:</span> <span class="codeblock__o-string">'snow'</span>
+    });
+
+
+    <span class="codeblock__g-comment">// DOM variables</span>
+    const form = document.getElementById('form');
+    const formContentInput = document.getElementById('form-content-input');
+
+
+    /**
+        * JS submit event that gets data from the form
+        * and
+        * pass quill content to the hidden input
+        */
+    form.addEventListener('submit', () => {
+        const getContent = quill.root.innerHTML;
+        formContentInput.value = getContent;
+    })
+}
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
 <p></p>
 <p></p>
 <p></p>
