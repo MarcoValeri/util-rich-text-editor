@@ -1,6 +1,6 @@
 <!-- Link -->
 <!-- Do Follow -->
-<a class="link" rel="noreferrer noopener" href="https://github.com/MarcoValeri/go-rich-text-editor-with-quill" target="_blank">Go Rich Text Editor With Quill</a>
+<a class="link" rel="noreferrer noopener" href="https://www.geeksforgeeks.org/is-zero-positive-or-negative/" target="_blank">0 is neither positive nor negative</a>
 <!-- Amazon -->
 <a class="link" rel="sponsored nofollow" target="_blank" href="https://amzn.to/47m9482">The Power of Discipline di Daniel Walter</a>
 
@@ -79,12 +79,54 @@ echo "Hello " . $name;
     <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">complexNumberThree</span> <span class="codeblock__g-package-name">complex128</span>
 
     <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Hello World"</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Hello World"</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"result ="</span>,<span class="codeblock__b-package-fmt">result</span><span class="codeblock__p-bracket">)</span>
     <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">productOne</span><span class="codeblock__p-bracket">)</span>
     <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__y-func-name">len</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">name</span><span class="codeblock__p-bracket"><span class="codeblock__p-bracket">))</span></span>
     <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Username:"</span>, <span class="codeblock__b-package-fmt">userName</span><span class="codeblock__p-bracket">)</span>
     <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"email: </span><span class="codeblock__b-package-fmt">%s </span><span class="codeblock__o-string"> - password: </span><span class="codeblock__b-package-fmt">%s</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">userEmail</span>, <span class="codeblock__b-package-fmt">userPassword</span><span class="codeblock__p-bracket">)</span>
     <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product ID: </span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productId</span><span class="codeblock__p-bracket">)</span>
 
+    <!-- IF ELSE STATEMENT -->
+    <span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">isAdminUser</span> <span class="codeblock__p-bracket">{</span>
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Show admin dashboard"</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-bracket">}</span> <span class="codeblock__p-import">else</span> <span class="codeblock__p-bracket">{</span>
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Do not show admin dashboard"</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-bracket">}</span>
+    <!-- END IF ELSE STATEMENT -->
+
+    <!-- SWITCH -->
+    <span class="codeblock__p-import">switch</span> <span class="codeblock__b-package-fmt">month</span> <span class="codeblock__p-bracket">{</span>
+    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">1</span>:
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"January"</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">2</span>:
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"February"</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">3</span>:
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"March"</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">4</span>:
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"April"</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">5</span>:
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"May"</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">6</span>:
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"June"</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">7</span>:
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"July"</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">8</span>:
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"August"</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">9</span>:
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"September"</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">10</span>:
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"October"</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">11</span>:
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"November"</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">12</span>:
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"December"</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-import">default</span>:
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Invalid value"</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-bracket">}</span>
+    <!-- END SWITCH -->
+
+    <!-- PROJECT STRUCTURE -->
     go-rich-text-editor-with-quill/
     └── public/
     └── js
@@ -93,6 +135,7 @@ echo "Hello " . $name;
         └── home.html
     └── go.mod
     └── main.go
+    <!-- END PROJECT STRUCTURE -->
     
     <!-- HTML PAGE -->
     &lt;!</span><span class="codeblock__b-package">DOCTYPE</span> <span class="codeblock__b-package-fmt">html</span><span class="codeblock__g-angle-brackets">&gt;</span>
