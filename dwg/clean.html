@@ -1,10 +1,8 @@
-<p>In Go, the <em>switch</em> statement offers a powerful alternative to if/else chains for handling multiple conditional branches.</p>
-<p>While both structures can be used for decision-making, each excels in different scenarios.</p>
-<p>Let's dive into the nuances of the <em>switch</em> statement and explore when it might be a more suitable choice than traditional <em>if/else</em> constructs in your Go code.</p>
+<p>In Go, loops are exclusively created using the <em>for</em> keyword. This versatile construct allows for various looping patterns, including those resembling <em>while</em> and <em>do-while</em> loops found in other languages.</p>
+<p>In this guide, we'll explore the different ways to utilise the <em>for</em> loop in Go to iterate over data, control program flow, and implement repetitive tasks efficiently.</p>
 <p>&nbsp;</p>
-<h2>Go switch statement</h2>
-<p>Go also offers the <em>switch</em> statement, providing an alternative to <em>if/else</em> chains for handling multiple conditional branches.</p>
-<p>The <em>switch</em> statement evaluates an expression and then checks for matches against several potential cases. If a match is found, the corresponding block of code is executed.</p>
+<h2>Go for loop</h2>
+<p>Go programming language has only one looping construct, it is <em>for</em>.</p>
 <p>&nbsp;</p>
 <!-- Codeblock Start -->
 <div class="codeblock">
@@ -18,36 +16,9 @@
 <span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
 
 <span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package-fmt">month</span> := <span class="codeblock__g-variable-data">1</span>
-    
-    <span class="codeblock__p-import">switch</span> <span class="codeblock__b-package-fmt">month</span> <span class="codeblock__p-bracket">{</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">1</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"January"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">2</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"February"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">3</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"March"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">4</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"April"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">5</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"May"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">6</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"June"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">7</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"July"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">8</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"August"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">9</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"September"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">10</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"October"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">11</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"November"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">12</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"December"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">default</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Invalid value"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-bracket">}</span>    
+    <span class="codeblock__p-import">for</span> <span class="codeblock__b-package-fmt">i</span> := <span class="codeblock__g-variable-data">0</span>; <span class="codeblock__b-package-fmt">i</span> < <span class="codeblock__g-variable-data">10</code>; <span class="codeblock__b-package-fmt">i</span>++ <span class="codeblock__p-bracket">{</span>
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__b-package-fmt">i</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-bracket">}</span>
 <span class="codeblock__y-bracket">}</span>
 </code></pre>
         </div>
@@ -63,15 +34,24 @@
     <div class="terminal__wrapper">
 <pre>
 <code><span class="terminal__grey">$</span> go run main.go
-January</code>
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9</code>
 </pre>
     </div>
 </div>
 <!-- Terminal End -->
 <p>&nbsp;</p>
-<p>In the above example, the variable <em>month</em> is equal to 1, so the program executes the code associated with <em>case 1</em>, printing <em>"January"</em> as the output.</p>
-<p>&nbsp;</p>
-<p>Go's <em>switch</em> statement also features a <em>default</em> case. The code block within the <em>default</em> case is executed if none of the other cases match the value being evaluated. This provides a fallback option when no other cases apply.</p>
+<p>In Go, the <em>range</em> keyword provides a concise and idiomatic way to iterate over various data structures, such as arrays, slices, strings, maps, and channels, within a <em>for</em> loop.</p>
+<p>We will discover arrays, slices and maps in the following guides.</p>
+<p>Let’s see now how to use <em>range</em> with a string.</p>
 <p>&nbsp;</p>
 <!-- Codeblock Start -->
 <div class="codeblock">
@@ -85,36 +65,11 @@ January</code>
 <span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
 
 <span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package-fmt">month</span> := <span class="codeblock__g-variable-data">15</span>
-    
-    <span class="codeblock__p-import">switch</span> <span class="codeblock__b-package-fmt">month</span> <span class="codeblock__p-bracket">{</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">1</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"January"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">2</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"February"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">3</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"March"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">4</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"April"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">5</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"May"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">6</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"June"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">7</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"July"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">8</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"August"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">9</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"September"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">10</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"October"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">11</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"November"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">12</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"December"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">default</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Invalid value"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-bracket">}</span>    
+    <span class="codeblock__b-package-fmt">message</span> := <span class="codeblock__o-string">"Hello Go"</span>
+
+    <span class="codeblock__p-import">for</span> <span class="codeblock__b-package-fmt">index</span>, <span class="codeblock__b-package-fmt">char</span> := <span class="codeblock__p-import">range</span> <span class="codeblock__b-package-fmt">message</span> <span class="codeblock__p-bracket">{</span>
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Character at index</span> <span class="codeblock__b-package-fmt">%d</span> <span class="codeblock__o-string">is '</span><span class="codeblock__b-package-fmt">%c</span><span class="codeblock__o-string">'</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">index</span>, <span class="codeblock__b-package-fmt">char</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-bracket">}</span>
 <span class="codeblock__y-bracket">}</span>
 </code></pre>
         </div>
@@ -130,18 +85,21 @@ January</code>
     <div class="terminal__wrapper">
 <pre>
 <code><span class="terminal__grey">$</span> go run main.go
-Invalid value</code>
+Character at index 0 is 'H'
+Character at index 1 is 'e'
+Character at index 2 is 'l'
+Character at index 3 is 'l'
+Character at index 4 is 'o'
+Character at index 5 is ' '
+Character at index 6 is 'G'
+Character at index 7 is 'o'</code>
 </pre>
     </div>
 </div>
 <!-- Terminal End -->
 <p>&nbsp;</p>
-<p>In some programming languages like JavaScript, each <em>case</em> within a <em>switch</em> statement typically requires a <em>break</em> keyword to prevent <em>"fallthrough"</em>, where execution continues into subsequent cases.</p>
-<p>However, Go's <em>switch</em> statement behaves differently. By default, Go automatically prevents fallthrough, so you only need to use <em>break</em> if you explicitly want this behaviour.</p>
-<p>&nbsp;</p>
-<h2>Go switch statement with fallthrough</h2>
-<p>In Go's <em>switch</em> statement, the <em>fallthrough</em> keyword allows execution to continue into subsequent cases, even after a match is found.</p>
-<p>This behaviour is distinct from languages like JavaScript, where <em>break</em> statements are typically needed to prevent fallthrough.</p>
+<h2>Go loops</h2>
+<p>In Go, the <em>return</em> statement can be used within a loop to immediately exit both the loop and the enclosing function. This is often done when a specific condition is met, and further iteration is unnecessary or undesirable.</p>
 <p>&nbsp;</p>
 <!-- Codeblock Start -->
 <div class="codeblock">
@@ -155,27 +113,15 @@ Invalid value</code>
 <span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
 
 <span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package-fmt">today</span> := <span class="codeblock__g-variable-data">3</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Loop starts"</span><span class="codeblock__p-bracket">)</span>
 
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Workdays remaining in this week:"</span><span class="codeblock__p-bracket">)</span>
-    <span class="codeblock__p-import">switch</span> <span class="codeblock__b-package-fmt">today</span> <span class="codeblock__p-bracket">{</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">1</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Monday"</span><span class="codeblock__b-bracket">)</span>
-        <span class="codeblock__p-import">fallthrough</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">2</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Tuesday"</span><span class="codeblock__b-bracket">)</span>
-        <span class="codeblock__p-import">fallthrough</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">3</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Wednesday"</span><span class="codeblock__b-bracket">)</span>
-        <span class="codeblock__p-import">fallthrough</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">4</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Thursday"</span><span class="codeblock__b-bracket">)</span>
-        <span class="codeblock__p-import">fallthrough</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">5</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Friday"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">default</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Invalid value"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-bracket">}</span>    
+    <span class="codeblock__p-import">for</span> <span class="codeblock__b-package-fmt">index</span> := <span class="codeblock__g-variable-data">0</span>; <span class="codeblock__b-package-fmt">index</span> < <span class="codeblock__g-variable-data">100</span>; <span class="codeblock__b-package-fmt">index</span>++ <span class="codeblock__p-bracket">{</span>
+        <span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">index</span> == <span class="codeblock__g-variable-data">9</span> <span class="codeblock__b-bracket">{</span>
+            <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__y-bracket">(</span><span class="codeblock__o-string">"Loop ends"</span><span class="codeblock__y-bracket">)</span>
+            <span class="codeblock__p-import">return</span>
+        <span class="codeblock__b-bracket">}</span>
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__b-package-fmt">index</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-bracket">}</span>
 <span class="codeblock__y-bracket">}</span>
 </code></pre>
         </div>
@@ -191,17 +137,23 @@ Invalid value</code>
     <div class="terminal__wrapper">
 <pre>
 <code><span class="terminal__grey">$</span> go run main.go
-Workdays remaining in this week:
-Wednesday
-Thursday
-Friday</code>
+Loop starts
+0
+1
+2
+3
+4
+5
+6
+7
+8
+Loop ends</code>
 </pre>
     </div>
 </div>
 <!-- Terminal End -->
 <p>&nbsp;</p>
-<h2>Go switch with multiple cases</h2>
-<p>In Go, a <em>switch</em> statement can execute a block of code based on whether a single value matches one or more specified cases.</p>
+<p>While <em>return</em> can be used to exit a loop, its primary purpose is to return values from functions. To stop a loop's current iteration and immediately proceed to the next one without exiting the function, Go provides the <em>continue</em> statement. On the other hand, if you need to completely terminate a loop prematurely, you can use the <em>break</em> statement.</p>
 <p>&nbsp;</p>
 <!-- Codeblock Start -->
 <div class="codeblock">
@@ -215,15 +167,16 @@ Friday</code>
 <span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
 
 <span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package-fmt">today</span> := <span class="codeblock__o-string">"Monday"</span>
-    <span class="codeblock__p-import">switch</span> <span class="codeblock__b-package-fmt">today</span> <span class="codeblock__p-bracket">{</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__o-string">"Monday"</span>, <span class="codeblock__o-string">"Tuesday"</span>, <span class="codeblock__o-string">"Wednesday"</span>, <span class="codeblock__o-string">"Thursday"</span>, <span class="codeblock__o-string">"Friday"</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Weekday"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__o-string">"Saturday"</span>, <span class="codeblock__o-string">"Sunday"</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Weekend"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">default</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Invalid value"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-bracket">}</span>   
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Loop starts"</span><span class="codeblock__p-bracket">)</span>
+
+    <span class="codeblock__p-import">for</span> <span class="codeblock__b-package-fmt">index</span> := <span class="codeblock__g-variable-data">0</span>; <span class="codeblock__b-package-fmt">index</span> < <span class="codeblock__g-variable-data">100</span>; <span class="codeblock__b-package-fmt">index</span>++ <span class="codeblock__p-bracket">{</span>
+        <span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">index</span> == <span class="codeblock__g-variable-data">9</span> <span class="codeblock__b-bracket">{</span>
+            <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__y-bracket">(</span><span class="codeblock__o-string">"Loop ends"</span><span class="codeblock__y-bracket">)</span>
+            <span class="codeblock__p-import">break</span>
+        <span class="codeblock__b-bracket">}</span>
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__b-package-fmt">index</span><span class="codeblock__b-bracket">)</span>
+        <span class="codeblock__p-import">continue</span>
+    <span class="codeblock__p-bracket">}</span>
 <span class="codeblock__y-bracket">}</span>
 </code></pre>
         </div>
@@ -239,14 +192,23 @@ Friday</code>
     <div class="terminal__wrapper">
 <pre>
 <code><span class="terminal__grey">$</span> go run main.go
-Weekday</code>
+Loop starts
+0
+1
+2
+3
+4
+5
+6
+7
+8
+Loop ends</code>
 </pre>
     </div>
 </div>
 <!-- Terminal End -->
 <p>&nbsp;</p>
-<h2>Go switch without expression</h2>
-<p>In Go, each case within a <em>switch</em> statement can have its own expression to evaluate, providing greater flexibility and control compared to traditional switch statements in other languages.</p>
+<p>In Go, you can use the <em>break</em> keyword by itself within a <em>for</em> loop without any explicit condition. This is often used to create an infinite loop that runs until a specific condition is met within the loop body.</p>
 <p>&nbsp;</p>
 <!-- Codeblock Start -->
 <div class="codeblock">
@@ -260,19 +222,12 @@ Weekday</code>
 <span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
 
 <span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package-fmt">income</span> := <span class="codeblock__g-variable-data">80000</span>
-    <span class="codeblock__p-import">switch</span> <span class="codeblock__p-bracket">{</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__b-package-fmt">income</span> <= <span class="codeblock__g-variable-data">12500</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Tax rate 0%"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__b-package-fmt">income</span> > <span class="codeblock__g-variable-data">12500</span> && <span class="codeblock__b-package-fmt">income</span> <= <span class="codeblock__g-variable-data">50000</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Tax rate 20%"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__b-package-fmt">income</span> > <span class="codeblock__g-variable-data">50000</span> && <span class="codeblock__b-package-fmt">income</span> <= <span class="codeblock__g-variable-data">125000</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Tax rate 40%"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__b-package-fmt">income</span> > <span class="codeblock__g-variable-data">125000</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Tax rate 45%"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">default</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Invalid value"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-bracket">}</span>   
+    <span class="codeblock__p-import">for</span> <span class="codeblock__p-bracket">{</span>
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"I"</span><span class="codeblock__b-bracket">)</span>
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"love"</span><span class="codeblock__b-bracket">)</span>
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Go"</span><span class="codeblock__b-bracket">)</span>
+        <span class="codeblock__p-import">break</span>
+    <span class="codeblock__p-bracket">}</span>
 <span class="codeblock__y-bracket">}</span>
 </code></pre>
         </div>
@@ -288,15 +243,16 @@ Weekday</code>
     <div class="terminal__wrapper">
 <pre>
 <code><span class="terminal__grey">$</span> go run main.go
-Tax rate 40%</code>
+I
+love
+Go</code>
 </pre>
     </div>
 </div>
 <!-- Terminal End -->
 <p>&nbsp;</p>
-<h2>Go switch statement: optional expressions</h2>
-<p>In Go, you can initialise variables within a <em>switch</em> statement, even when omitting the expression to be evaluated.</p>
-<p>This allows you to create variables with a scope limited to the switch block.</p>
+<h2>Go while loop</h2>
+<p>As we've seen, Go uses the for loop for various iteration scenarios. Unlike languages like JavaScript, PHP, or Python, Go intentionally omits a separate <em>while</em> keyword. This aligns with Go's design philosophy of simplicity and minimalism, aiming to avoid redundant language features. In Go, you can easily achieve the functionality of a <em>while</em> loop using a <em>for</em> loop without any condition.</p>
 <p>&nbsp;</p>
 <!-- Codeblock Start -->
 <div class="codeblock">
@@ -310,18 +266,12 @@ Tax rate 40%</code>
 <span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
 
 <span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__p-import">switch</span> <span class="codeblock__b-package-fmt">season</span> := <span class="codeblock__g-variable-data">1</span>; <span class="codeblock__b-package-fmt">season</span> <span class="codeblock__p-bracket">{</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">1</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Winter"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">2</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Spring"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">3</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Summer"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">case</span> <span class="codeblock__g-variable-data">4</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Autumn"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-import">default</span>:
-        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Invalid value"</span><span class="codeblock__b-bracket">)</span>
-    <span class="codeblock__p-bracket">}</span>   
+    <span class="codeblock__b-package-fmt">i</span> := <span class="codeblock__g-variable-data">0</span>
+
+    <span class="codeblock__p-import">for</span> <span class="codeblock__b-package-fmt">i</span> <= <span class="codeblock__g-variable-data">9</span> <span class="codeblock__p-bracket">{</span>
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__b-package-fmt">i</span><span class="codeblock__b-bracket">)</span>
+        <span class="codeblock__b-package-fmt">i++</span>
+    <span class="codeblock__p-bracket">}</span>
 <span class="codeblock__y-bracket">}</span>
 </code></pre>
         </div>
@@ -337,26 +287,82 @@ Tax rate 40%</code>
     <div class="terminal__wrapper">
 <pre>
 <code><span class="terminal__grey">$</span> go run main.go
-Winter</code>
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9</code>
 </pre>
     </div>
 </div>
 <!-- Terminal End -->
 <p>&nbsp;</p>
-<h2>Switch vs if else statement</h2>
-<p>Go's <em>switch</em> and <em>if/else</em> statements both offer powerful ways to handle conditional logic. When faced with multiple conditions, the <em>switch</em> statement often shines due to its cleaner syntax and easier readability.</p>
-<p>It excels at comparing a single value against several possibilities, presenting a more organised structure than nested <em>if/else</em> chains.</p>
-<p>However, for complex conditions or scenarios where you need to combine multiple logical expressions, <em>if/else</em> might be the more flexible choice.</p>
+<h2>Go do…while loop</h2>
+<p>As we've discussed, Go doesn't include a <em>do...while</em> loop like some other programming languages.</p>
+<p>However, you can still achieve the same logic using a <em>for</em> loop, as demonstrated in the following example.</p>
 <p>&nbsp;</p>
-<p>In terms of performance, the <em>switch</em> statement can sometimes be faster than an equivalent <em>if/else</em> chain, especially when dealing with a large number of cases.</p>
-<p>This is because Go's compiler can often optimise switch statements into jump tables, allowing for efficient execution.</p>
-<p>However, the performance difference is usually negligible for smaller cases or more complex conditions.</p>
-<p>The primary factor in choosing between the two should be code clarity and maintainability.</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__b-package-fmt">i</span> := <span class="codeblock__g-variable-data">0</span>
+
+    <span class="codeblock__p-import">for</span> <span class="codeblock__p-bracket">{</span>
+        <span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">i</span> > <span class="codeblock__g-variable-data">9</span> <span class="codeblock__b-bracket">{</span>
+            <span class="codeblock__p-import">break</span>
+        <span class="codeblock__b-bracket">}</span>
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__b-package-fmt">i</span><span class="codeblock__b-bracket">)</span>
+        <span class="codeblock__b-package-fmt">i++</span>
+    <span class="codeblock__p-bracket">}</span>
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>We will work later again with more complex loops when we start to work with arrays, lists and maps.</p>
 <div class="prev-next-guide">
     <div class="prev-next-guide__container-prev">
-        <a class="p-xl link" rel="noreferrer noopener" href="https://www.devwithgo.dev/guide/go-programming-language" >&larr; Go operators</a>
+        <a class="p-xl link" rel="noreferrer noopener" href="https://www.devwithgo.dev/guide/go-switch" >&larr; Go Switch case</a>
     </div>
     <div class="prev-next-guide__container-next">
-        <p class="p-xl">Go for loop - coming soon &rarr;</p>
+        <p class="p-xl">Next guide - coming soon &rarr;</p>
     </div>
 </div>
