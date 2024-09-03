@@ -1,0 +1,293 @@
+<p>In programming languages, comments play a crucial role in describing sections of code or leaving instructions for fellow developers.</p>
+<p>While well-structured code with clear variable and function names can often reduce the need for excessive comments, they remain valuable for providing context, explanations, or insights that may not be immediately obvious from the code itself.</p>
+<p>Let's delve into how Go, a popular programming language, handles comments.</p>
+<p>&nbsp;</p>
+<h2>Go comments</h2>
+<p>Go offers two distinct ways to incorporate comments into your code:</p>
+<ul>
+    <li><strong>Single-line Comments:</strong> these begin with two forward slashes (//) and continue until the end of the line. They are ideal for short notes or explanations directly beside the relevant code</li>
+    <li><strong>Multiline Comments:</strong> these start with a forward slash and asterisk (/*) and end with the reverse (*/). They are perfect for longer explanations, documentation blocks, or temporarily disabling sections of code</li>
+</ul>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__g-comment">// Declare a variable representing a website URL</span>
+    <span class="codeblock__b-package-fmt">website</span> := <span class="codeblock__o-string">"www.devwithgo.dev"</span>
+
+    <span class="codeblock__g-comment">/**</span>
+    <span class="codeblock__g-comment">Print the website URL to the console</span>
+    <span class="codeblock__g-comment">using the fmt.Println() function</span>
+    <span class="codeblock__g-comment">*/</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">website</span><span class="codeblock__p-bracket">)</span>
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+www.devwithgo.dev</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>In programming languages, comments serve a purely informational purpose and are not involved in the program's logic. They are intended for human readers, providing explanations, documentation, or notes within the code. As demonstrated in the previous Go example, the compiler (or interpreter) ignores comments entirely during the process of executing the program.</p>
+<p>&nbsp;</p>
+<h2>Go single-line comments</h2>
+<p>In Go, single-line comments are created using two forward slashes (//).</p>
+<p>Any text following the // on the same line is considered a comment and is ignored by the Go compiler.</p>
+<p>This makes single-line comments ideal for brief explanations or annotations directly beside the corresponding code.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__g-comment">// Store user email address</span>
+    <span class="codeblock__b-package-fmt">userEmail</span> := <span class="codeblock__o-string">"user@gmail.com"</span>
+
+    <span class="codeblock__g-comment">// Store user password (for illustrative purposes only, not secure)</span>
+    <span class="codeblock__b-package-fmt">userPassword</span> := <span class="codeblock__o-string">"1234"</span>
+
+    <span class="codeblock__g-comment">// Print out user email and password</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Your login data"</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"email: </span><span class="codeblock__b-package-fmt">%s </span><span class="codeblock__o-string"> - password: </span><span class="codeblock__b-package-fmt">%s</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">userEmail</span>, <span class="codeblock__b-package-fmt">userPassword</span><span class="codeblock__p-bracket">)</span>
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+Your login data
+email: user@gmail.com - password: 1234</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<h2>Go multiline comments</h2>
+<p>In Go, multiline comments are enclosed between the delimiters /* and */.</p>
+<p>These comments can span multiple lines, making them ideal for longer explanations, documenting code blocks, or temporarily disabling sections of code during development.</p>
+<p>&nbsp;</p>
+<p>A common convention within multiline comments is to use the <strong>TODO</strong> tag to mark areas where work still needs to be done or improvements can be made.</p>
+<p>This practice helps developers track outstanding tasks and easily identify areas for future attention.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__b-package-fmt">productId</span> := <span class="codeblock__g-variable-data">1</span>
+    <span class="codeblock__b-package-fmt">productTitle</span> := <span class="codeblock__o-string">"Go Book"</span>
+    <span class="codeblock__b-package-fmt">productPrice</span> := <span class="codeblock__g-variable-data">9.99</span>
+
+    <span class="codeblock__g-comment">/*</span>
+    <span class="codeblock__g-comment">TODO:</span>
+    <span class="codeblock__g-comment">print out the above</span>
+    <span class="codeblock__g-comment">product data with</span>
+    <span class="codeblock__g-comment">fmt.Printf() functions</span>
+    <span class="codeblock__g-comment">*/</span>
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<p>While /* ... */ is the designated syntax for multiline comments in Go, you can achieve a similar effect using multiple consecutive single-line comments (//).</p>
+<p>This technique is often employed for shorter multiline comments, where the visual separation of individual lines can enhance readability.</p>
+<p>Ultimately, the choice between the two methods often comes down to personal preference or project conventions.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__g-comment">// Store product data in separate variables</span>
+    <span class="codeblock__g-comment">// for product ID, title, and price</span>
+    <span class="codeblock__b-package-fmt">productId</span> := <span class="codeblock__g-variable-data">1</span>
+    <span class="codeblock__b-package-fmt">productTitle</span> := <span class="codeblock__o-string">"Go Book"</span>
+    <span class="codeblock__b-package-fmt">productPrice</span> := <span class="codeblock__g-variable-data">9.99</span>
+    
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product data"</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product ID: </span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productId</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product Title: </span><span class="codeblock__b-package-fmt">%s</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productTitle</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product Price: </span><span class="codeblock__b-package-fmt">%g</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productPrice</span><span class="codeblock__p-bracket">)</span>
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+Product data
+Product ID: 1
+Product Title: Go book
+Product Price: 9.99</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<h2>Using comments for testing in Go</h2>
+<p>Comments are frequently used as a tool for testing and debugging code.</p>
+<p>Developers often temporarily comment out sections of code to isolate issues, experiment with potential solutions, or simply gain a better understanding of how different parts of the program interact.</p>
+<p>This practice is widespread across programming languages, including Go.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__b-package-fmt">productId</span> := <span class="codeblock__g-variable-data">1</span>
+    <span class="codeblock__b-package-fmt">productTitle</span> := <span class="codeblock__o-string">"Go Book"</span>
+    <span class="codeblock__b-package-fmt">productPrice</span> := <span class="codeblock__g-variable-data">9.99</span>
+    <span class="codeblock__b-package-fmt">productAvailable</span> := <span class="codeblock__b-package">true</span>
+    
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product data"</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product ID: </span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productId</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product Title: </span><span class="codeblock__b-package-fmt">%s</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productTitle</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product Price: </span><span class="codeblock__b-package-fmt">%g</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productPrice</span><span class="codeblock__p-bracket">)</span>
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+# command-line-arguments
+.\main.go:9:2: productAvailable declared and not used</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>As you can see, the above code creates an error because the variable <em>productAvailable</em> is declared but not used – Go does not allow this.</p>
+<p>Let's add a comment to temporarily disable this line of code for testing purposes.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__b-package-fmt">productId</span> := <span class="codeblock__g-variable-data">1</span>
+    <span class="codeblock__b-package-fmt">productTitle</span> := <span class="codeblock__o-string">"Go Book"</span>
+    <span class="codeblock__b-package-fmt">productPrice</span> := <span class="codeblock__g-variable-data">9.99</span>
+    <span class="codeblock__g-comment">// productAvailable := true</span>
+    
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product data"</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product ID: </span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productId</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product Title: </span><span class="codeblock__b-package-fmt">%s</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productTitle</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product Price: </span><span class="codeblock__b-package-fmt">%g</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productPrice</span><span class="codeblock__p-bracket">)</span>
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+Product data
+Product ID: 1
+Product Title: Go book
+Product Price: 9.99</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>With the commented-out line, the program now compiles and runs without errors. This simple example demonstrates how comments can be a valuable tool for testing and debugging Go code.</p>
+<p>In future guides, we'll delve deeper into the world of Go testing, exploring best practices and frameworks for thoroughly testing your Go programs.</p>
+<div class="prev-next-guide">
+    <div class="prev-next-guide__container-prev">
+        <a class="p-xl link" rel="noreferrer noopener" href="https://www.devwithgo.dev/guide/go-data-types" >&larr; Go data types</a>
+    </div>
+    <div class="prev-next-guide__container-next">
+        <a class="p-xl link" rel="noreferrer noopener" href="https://www.devwithgo.dev/guide/go-if-and-else-statement" >Go if and else statement &rarr;</a>
+
+    </div>
+</div>

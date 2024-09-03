@@ -1,0 +1,386 @@
+<p>Go <em>if</em> and <em>else</em> statement allows you to master conditional logic. In this guide, we'll unravel the power of <em>if</em>, <em>else if</em>, and <em>else</em> statements in Golang.</p>
+<p>You will learn how to create decision-making structures in your programs, allowing different blocks of code to execute based on specific conditions.</p>
+<p>Discover best practices for writing clean, efficient, and effective conditional logic in your Go applications.</p>
+<p>&nbsp;</p>
+<h2>Go if and else statement</h2>
+<p>In Go, conditional statements allow you to control the flow of your program based on whether certain conditions are met. This enables your code to make decisions, execute specific blocks of code only when necessary, and adapt to different scenarios.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__p-import">if</span> <span class="codeblock__b-package">true</span> {
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"TRUE"</span><span class="codeblock__p-bracket">)</span>
+    }
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+TRUE</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>Unlike languages like JavaScript, where parentheses are often required around conditions in <em>if</em> statements, Go does not mandate their use. As shown in the previous example, the condition can be directly written after the <em>if</em> keyword without parentheses.</p>
+<p>&nbsp;</p>
+<h2>Go if statement</h2>
+<p>In Go, an <em>if</em> statement allows you to execute a block of code only if a specified condition evaluates to <em>true</em>.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__b-package-fmt">programmingLanguage</span> := <span class="codeblock__o-string">"Go"</span>
+    <span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">programmingLanguage</span> == <span class="codeblock__o-string">"Go"</span> {
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span>(<span class="codeblock__o-string">"Hello"</span>, <span class="codeblock__b-package-fmt">programmingLanguage</span>)
+    }
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+Hello Go</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<h2>Go if else statement</h2>
+<p>In Go, an <em>if</em> statement (optionally followed by an <em>else</em> statement) allows you to conditionally execute different blocks of code based on whether a specific condition evaluates to <em>true</em> or <em>false</em>.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__b-package-fmt">programmingLanguage</span> := <span class="codeblock__b-package">true</span>
+    <span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">isAdminUser</span> {
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span>(<span class="codeblock__o-string">"Show admin dashboard"</span>)
+    } <span class="codeblock__p-import">else</span> {
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span>(<span class="codeblock__o-string">"Do not show admin dashboard"</span>)
+    }
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+Show admin dashboard</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>You can use an <em>if</em> statement in Go without a corresponding <em>else</em> clause. However, an <em>else</em> clause cannot exist on its own; it must always be paired with a preceding <em>if</em> statement.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__b-package-fmt">isAdminUser</span> := <span class="codeblock__b-package">true</span>
+
+    <span class="codeblock__g-comment">// if statement without else</span>
+    <span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">isAdminUser</span> {
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span>(<span class="codeblock__o-string">"Show admin dashboard"</span>)
+    }
+
+    <span class="codeblock__g-comment">// if statement with else</span>
+    <span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">isAdminUser</span> {
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span>(<span class="codeblock__o-string">"Show admin dashboard"</span>)
+    } <span class="codeblock__p-import">else</span> {
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span>(<span class="codeblock__o-string">"Do not show admin dashboard"</span>)
+    }
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<h2>Go if, if else and else statement</h2>
+<p>In Go, you can combine if, else if, and else statements to create complex decision-making logic.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__b-package-fmt">providedNumber</span> := <span class="codeblock__g-variable-data">0</span>
+    <span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">providedNumber</span> > <span class="codeblock__g-variable-data">0</span> {
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">providedNumber</span>, <span class="codeblock__o-string">"is a positive integer"</span><span class="codeblock__p-bracket">)</span>
+    } <span class="codeblock__p-import">else if</span> <span class="codeblock__b-package-fmt">providedNumber</span> < <span class="codeblock__g-variable-data">0</span> {
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">providedNumber</span>, <span class="codeblock__o-string">"is a negative integer"</span><span class="codeblock__p-bracket">)</span>
+    } <span class="codeblock__p-import">else</span> {
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">providedNumber</span>, <span class="codeblock__o-string">"is neither positive nor negative"</span><span class="codeblock__p-bracket">)</span>
+    }
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+0 is neither positive nor negative</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>As you can see, in the above example the variable <em>providedNumber</em> is an integer equal to zero. This means that <a class="link" rel="noreferrer noopener" href="https://www.geeksforgeeks.org/is-zero-positive-or-negative/" target="_blank">0 is neither positive nor negative</a>.</p>
+<p>&nbsp;</p>
+<p>In Go, you can declare and initialise variables directly within the condition of an <em>if</em> statement (or its <em>else if</em> and <em>else</em> clauses). This allows you to define variables with a scope limited to the conditional block, simplifying your code and enhancing readability.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">providedNumber</span> := <span class="codeblock__g-variable-data">-1</span>; <span class="codeblock__b-package-fmt">providedNumber</span> > <span class="codeblock__g-variable-data">0</span> {
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">providedNumber</span>, <span class="codeblock__o-string">"is a positive integer"</span><span class="codeblock__p-bracket">)</span>
+    } <span class="codeblock__p-import">else if</span> <span class="codeblock__b-package-fmt">providedNumber</span> < <span class="codeblock__g-variable-data">0</span> {
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">providedNumber</span>, <span class="codeblock__o-string">"is a negative integer"</span><span class="codeblock__p-bracket">)</span>
+    } <span class="codeblock__p-import">else</span> {
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">providedNumber</span>, <span class="codeblock__o-string">"is neither positive nor negative"</span><span class="codeblock__p-bracket">)</span>
+    }
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+-1 is a negative integer</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<h2>Go nested if else statement</h2>
+<p>In Go, you can nest conditional statements, meaning you can place an <em>if</em>, <em>else if</em>, or else statement inside another <em>if</em>, <em>else if</em>, or <em>else</em> block. This technique allows you to create more complex decision-making structures where the execution of one code block depends on the outcome of multiple conditions.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__b-package-fmt">authentication </span> := <span class="codeblock__b-package">true</span>
+    <span class="codeblock__b-package-fmt">userRole </span> := <span class="codeblock__o-string">"admin"</span>
+    <span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">authentication</span> {
+        <span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">userRole</span> == <span class="codeblock__o-string">"admin"</span> {
+            <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span>(<span class="codeblock__o-string">"Login and redirect to admin dashboard"</span>)
+        } <span class="codeblock__p-import">else</span> {
+            <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span>(<span class="codeblock__o-string">"Login and redirect to basic dashboard"</span>)
+        }
+    }
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+Login and redirect to admin dashboard</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<h2>The ternary operator in Go</h2>
+<p>Unlike some other programming languages like JavaScript, Go does not include a built-in ternary operator. The ternary operator is a concise way to write conditional expressions in a single line.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__b-package-fmt">authentication</span> := <span class="codeblock__b-package">true</span>
+    <span class="codeblock__b-package-fmt">authentication</span> ? <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span>(<span class="codeblock__o-string">"TRUE"</span>) : <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span>(<span class="codeblock__o-string">"FALSE"</span>) <span class="codeblock__g-comment">// this is not allowed, the compiler will return an error</span>
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+# command-line-arguments
+.\main.go:7:20: invalid character U+003F '?'
+.\main.go:7:22: syntax error: unexpected fmt at end of statement</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>Why does Go not use the ternary operator? Golang intentionally omits the ternary operator due to concerns about code readability and maintainability. While the ternary operator can be concise, it can also lead to complex and less intuitive expressions when used excessively or for intricate conditions.</p>
+<p>The Go language prioritises explicitness and clarity, favouring the traditional if-else statement structure, even if it requires a few extra lines of code. This approach promotes code that is easier to understand, debug, and maintain, aligning with Go's philosophy of simplicity.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">main.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__b-package-fmt">authentication </span> := <span class="codeblock__b-package">true</span>
+    <span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">authentication</span> {
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span>(<span class="codeblock__o-string">"TRUE"</span>)
+    } <span class="codeblock__p-import">else</span> {
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span>(<span class="codeblock__o-string">"FALSE"</span>)
+    }
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run main.go
+TRUE</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p><em>if / else</em> statements in Go are very powerful, especially when they are combined with operators.</p>
+<p>Let’s discover it in the next guide.</p>
+<div class="prev-next-guide">
+    <div class="prev-next-guide__container-prev">
+        <a class="p-xl link" rel="noreferrer noopener" href="https://www.devwithgo.dev/guide/go-comments" >&larr; Go comments</a>
+    </div>
+    <div class="prev-next-guide__container-next">
+        <p class="p-xl">Go operators - coming soon &rarr;</p>
+    </div>
+</div>
