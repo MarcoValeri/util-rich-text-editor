@@ -1,13 +1,42 @@
-<p>In programming languages, comments play a crucial role in describing sections of code or leaving instructions for fellow developers.</p>
-<p>While well-structured code with clear variable and function names can often reduce the need for excessive comments, they remain valuable for providing context, explanations, or insights that may not be immediately obvious from the code itself.</p>
-<p>Let's delve into how Go, a popular programming language, handles comments.</p>
+<p>Go is a great programming language for manipulating data. In this new DevWithGo tutorial, we'll use Golang to extract data from an Excel file and display it in the console as JSON. I was inspired to create this tutorial after a manager at my company shared a massive Excel file containing over 1000 users that needed to be added to an app. To streamline the process, I wrote a Go script to extract all the user data and convert it to JSON.</p>
 <p>&nbsp;</p>
-<h2>Go comments</h2>
-<p>Go offers two distinct ways to incorporate comments into your code:</p>
-<ul>
-    <li><strong>Single-line Comments:</strong> these begin with two forward slashes (//) and continue until the end of the line. They are ideal for short notes or explanations directly beside the relevant code</li>
-    <li><strong>Multiline Comments:</strong> these start with a forward slash and asterisk (/*) and end with the reverse (*/). They are perfect for longer explanations, documentation blocks, or temporarily disabling sections of code</li>
-</ul>
+<p>In this tutorial, we'll keep things simple and work with a basic Excel file. However, the principles and code we'll cover can be applied to more complex and larger files. We'll be using Excelize, a fantastic library written in pure Go for working with Excel files and much more.</p>
+<p>&nbsp;</p>
+<p>Let's dive in.</p>
+<p>&nbsp;</p>
+<h2>How to read excel file data with Go</h2>
+<p>&nbsp;</p>
+<p>First, create a new project folder. You can name it go-and-excel or something else that’s meaningful to you.</p>
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> mkdir go-and-excel</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>Now, open the project in your favourite code editor. I will be using <a class="link" rel="noreferrer noopener" href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>, but any code editor will work.</p>
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> code go-and-excel</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>Let’s create a <strong>main.go</strong> file in the root of our <strong>go-and-excel</strong> folder and start writing some code.</p>
 <p>&nbsp;</p>
 <!-- Codeblock Start -->
 <div class="codeblock">
@@ -21,20 +50,15 @@
 <span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
 
 <span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__g-comment">// Declare a variable representing a website URL</span>
-    <span class="codeblock__b-package-fmt">website</span> := <span class="codeblock__o-string">"www.devwithgo.dev"</span>
-
-    <span class="codeblock__g-comment">/**</span>
-    <span class="codeblock__g-comment">Print the website URL to the console</span>
-    <span class="codeblock__g-comment">using the fmt.Println() function</span>
-    <span class="codeblock__g-comment">*/</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">website</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Hello World"</span><span class="codeblock__p-bracket">)</span>
 <span class="codeblock__y-bracket">}</span>
 </code></pre>
         </div>
     </div>
 </div>
 <!-- Codeblock End -->
+<p>&nbsp;</p>
+<p>Let’s test out setup by running this simple code snippet, which prints “Hello Go” to our terminal. To do this, we first need to initialise our Go module using the go mod init command. This command sets up a module path for our project - you can learn more about <a class="link" rel="noreferrer noopener" href="https://go.dev/doc/tutorial/create-module" target="_blank">Go modules</a> in the official Go documentation.</p>
 <p>&nbsp;</p>
 <!-- Terminal Start -->
 <div class="terminal">
@@ -43,19 +67,166 @@
     </div>
     <div class="terminal__wrapper">
 <pre>
-<code><span class="terminal__grey">$</span> go run main.go
-www.devwithgo.dev</code>
+<code><span class="terminal__grey">$</span> go mod init goandexcel
+go: creating new go.mod: module goandexcel
+go: to add module requirements and sums:
+    go mod tidy</code>
 </pre>
     </div>
 </div>
 <!-- Terminal End -->
 <p>&nbsp;</p>
-<p>In programming languages, comments serve a purely informational purpose and are not involved in the program's logic. They are intended for human readers, providing explanations, documentation, or notes within the code. As demonstrated in the previous Go example, the compiler (or interpreter) ignores comments entirely during the process of executing the program.</p>
+<p>With our Go module initialised, we're ready to run our code and see “Hello Go” printed in the terminal.</p>
 <p>&nbsp;</p>
-<h2>Go single-line comments</h2>
-<p>In Go, single-line comments are created using two forward slashes (//).</p>
-<p>Any text following the // on the same line is considered a comment and is ignored by the Go compiler.</p>
-<p>This makes single-line comments ideal for brief explanations or annotations directly beside the corresponding code.</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go run .
+Hello Go</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>Now that we have confirmed our basic Go setup is working, let’s create the structure for our project. We already have our <strong>main.go</strong> file. Now, let’s create a <strong>files</strong> folder in the project root. This is where we will store the Excel file we will be working with.</p>
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> mkdir files</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>At this point, I am going to save in the <strong>files</strong> folder, the excel file <strong>go-materials.xlsx</strong> - you can download it from the <a class="link" rel="noreferrer noopener" href="https://github.com/MarcoValeri/go-and-excel" target="_blank">GitHub repo Go and Excel</a>.</p>
+<p>The file <strong>go-materials.xlsx</strong> has two different sheets, <strong>Books</strong> and <strong>Courses</strong>, as shown in the following images.</p>
+<p>&nbsp;</p>
+<img src="/public/images/go-and-excel-books-table.webp" alt="Excel table with books data">
+<p>&nbsp;</p>
+<img src="/public/images/go-and-excel-courses-table.webp" alt="Excel table with courses data">
+<p>&nbsp;</p>
+<p>Let’s start by extracting all the data from the <strong>Books</strong> sheet. To do this, create a new folder named <strong>util</strong> and inside it, a new file called <strong>books.go</strong>. This file will contain the functions we will use to read the <strong>Books</strong> sheet data.</p>
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> mkdir util
+touch util/books.go</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>At this point, your project structure should look like this:</p>
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">go-and-excel</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code>go-and-excel/
+└── util/
+    └── books.go
+└── files/
+    └── go-materials.xlsx
+└── go.mod
+└── main.go</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>It is time to <a class="link" rel="noreferrer noopener" href="https://github.com/qax-os/excelize" target="_blank">install excelize</a>.</p>
+<p>Open your terminal and run the following command.</p>
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">terminal</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code><span class="terminal__grey">$</span> go get github.com/xuri/excelize/v2</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>Let’s write some code in the <strong>books.go</strong> file to read the <strong>Books</strong> table from <strong>files/go-materials.xlsx</strong> Excel file.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">books.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">util</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__y-bracket">(</span>
+    <span class="codeblock__o-string">"fmt"</span>
+
+    <span class="codeblock__o-string">"github.com/xuri/excelize/v2"</span>
+<span class="codeblock__y-bracket">)</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">Books</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__g-comment">// Open the file</span>
+    <span class="codeblock__b-package-fmt">getFile</span>, <span class="codeblock__b-package-fmt">err</span> := <span class="codeblock__b-package-fmt">excelize</span>.<span class="codeblock__y-func-name">OpenFile</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"./files/go-materials.xlsx"</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">err</span> != <span class="codeblock__b-package">nil</span> <span class="codeblock__p-bracket">{</span>
+		<span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Unable to open the excel file:"</span>, <span class="codeblock__b-package-fmt">err</span><span class="codeblock__b-bracket">)</span>
+		<span class="codeblock__p-bracket">return</span>
+    <span class="codeblock__p-bracket">}</span>
+
+	<span class="codeblock__p-bracket">defer</span> <span class="codeblock__b-package">func</span><span class="codeblock__p-bracket">()</span> <span class="codeblock__p-bracket">{</span>
+		<span class="codeblock__g-comment">// Close the file</span>
+		<span class="codeblock__p-bracket">if</span> <span class="codeblock__b-package-fmt">err</span> := <span class="codeblock__b-package-fmt">getFile</span>.<span class="codeblock__y-func-name">Close</span><span class="codeblock__b-bracket">()</span>; <span class="codeblock__b-package-fmt">err</span> != <span class="codeblock__b-package">nil</span> <span class="codeblock__b-bracket">{</span>
+            <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Unable to close the excel file:"</span>, <span class="codeblock__b-package-fmt">err</span><span class="codeblock__b-bracket">)</span>
+        <span class="codeblock__b-bracket">}</span>
+    <span class="codeblock__p-bracket">}()</span>
+
+	<span class="codeblock__g-comment">// Get all the rows in the Books sheet</span>
+    <span class="codeblock__b-package-fmt">rows</span>, <span class="codeblock__b-package-fmt">err</span> := <span class="codeblock__b-package-fmt">getFile</span>.<span class="codeblock__y-func-name">GetRows</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Books"</span><span class="codeblock__p-bracket">)</span>
+	<span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">err</span> != <span class="codeblock__b-package">nil</span> <span class="codeblock__p-bracket">{</span>
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Unable to get the Books rows:"</span>, <span class="codeblock__b-package-fmt">err</span><span class="codeblock__b-bracket">)</span>
+		<span class="codeblock__p-bracket">return</span>
+    <span class="codeblock__p-bracket">}</span>
+
+	<span class="codeblock__p-bracket">for</span> <span class="codeblock__b-package-fmt">i</span>, <span class="codeblock__b-package-fmt">_</span> := <span class="codeblock__p-bracket">range</span> <span class="codeblock__b-package-fmt">rows</span> <span class="codeblock__p-bracket">{</span>
+		<span class="codeblock__g-comment">// This statement avoid to print the row 0 that contains cells like "Title, Author, Year, Rate"</span>
+		<span class="codeblock__p-bracket">if</span> <span class="codeblock__b-package-fmt">i</span> == <span class="codeblock__g-variable-data">0</span> <span class="codeblock__b-bracket">{</span>
+			<span class="codeblock__p-bracket">continue</span>
+        <span class="codeblock__b-bracket">}</span>
+
+		<span class="codeblock__b-package-fmt">bookTitle</span>, <span class="codeblock__b-package-fmt">_</span> := <span class="codeblock__b-package-fmt">getFile</span>.<span class="codeblock__y-func-name">GetCellValue</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Books"</span>, <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Sprintf</span><span class="codeblock__y-bracket">(</span><span class="codeblock__o-string">"A</span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">i</span>+<span class="codeblock__g-variable-data">1</span><span class="codeblock__y-bracket">)</span><span class="codeblock__b-bracket">)</span>
+		<span class="codeblock__b-package-fmt">bookAuthor</span>, <span class="codeblock__b-package-fmt">_</span> := <span class="codeblock__b-package-fmt">getFile</span>.<span class="codeblock__y-func-name">GetCellValue</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Books"</span>, <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Sprintf</span><span class="codeblock__y-bracket">(</span><span class="codeblock__o-string">"B</span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">i</span>+<span class="codeblock__g-variable-data">1</span><span class="codeblock__y-bracket">)</span><span class="codeblock__b-bracket">)</span>
+		<span class="codeblock__b-package-fmt">bookYear</span>, <span class="codeblock__b-package-fmt">_</span> := <span class="codeblock__b-package-fmt">getFile</span>.<span class="codeblock__y-func-name">GetCellValue</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Books"</span>, <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Sprintf</span><span class="codeblock__y-bracket">(</span><span class="codeblock__o-string">"C</span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">i</span>+<span class="codeblock__g-variable-data">1</span><span class="codeblock__y-bracket">)</span><span class="codeblock__b-bracket">)</span>
+		<span class="codeblock__b-package-fmt">bookRate</span>, <span class="codeblock__b-package-fmt">_</span> := <span class="codeblock__b-package-fmt">getFile</span>.<span class="codeblock__y-func-name">GetCellValue</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Books"</span>, <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Sprintf</span><span class="codeblock__y-bracket">(</span><span class="codeblock__o-string">"D</span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">i</span>+<span class="codeblock__g-variable-data">1</span><span class="codeblock__y-bracket">)</span><span class="codeblock__b-bracket">)</span>
+
+		<span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"{title:</span> <span class="codeblock__b-package-fmt">%+v</span><span class="codeblock__o-string">, author:</span> <span class="codeblock__b-package-fmt">%+v</span><span class="codeblock__o-string">, year:</span> <span class="codeblock__b-package-fmt">%+v</span><span class="codeblock__o-string">, rate:</span> <span class="codeblock__b-package-fmt">%+v</span><span class="codeblock__o-string">},</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">bookTitle</span>, <span class="codeblock__b-package-fmt">bookAuthor</span>, <span class="codeblock__b-package-fmt">bookYear</span>, <span class="codeblock__b-package-fmt">bookRate</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-bracket">}</span>
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<p>Great. The logic for extracting data from the Excel file is now ready. Let’s import the <strong>Book()</strong> function from <strong>books.go</strong> into <strong>main.go</strong> and then run the code.</p>
 <p>&nbsp;</p>
 <!-- Codeblock Start -->
 <div class="codeblock">
@@ -66,24 +237,22 @@ www.devwithgo.dev</code>
         <div class="codeblock__container">
 <pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
 
-<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
+<span class="codeblock__p-import">import</span> <span class="codeblock__y-bracket">(</span>
+    <span class="codeblock__o-string">"fmt"</span>
+    <span class="codeblock__o-string">"goandexcel/util"</span>
+<span class="codeblock__y-bracket">)</span>
 
 <span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__g-comment">// Store user email address</span>
-    <span class="codeblock__b-package-fmt">userEmail</span> := <span class="codeblock__o-string">"user@gmail.com"</span>
-
-    <span class="codeblock__g-comment">// Store user password (for illustrative purposes only, not secure)</span>
-    <span class="codeblock__b-package-fmt">userPassword</span> := <span class="codeblock__o-string">"1234"</span>
-
-    <span class="codeblock__g-comment">// Print out user email and password</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Your login data"</span><span class="codeblock__p-bracket">)</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"email: </span><span class="codeblock__b-package-fmt">%s </span><span class="codeblock__o-string"> - password: </span><span class="codeblock__b-package-fmt">%s</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">userEmail</span>, <span class="codeblock__b-package-fmt">userPassword</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"BOOKS:"</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">util</span>.<span class="codeblock__y-func-name">Books</span><span class="codeblock__p-bracket">()</span>
 <span class="codeblock__y-bracket">}</span>
 </code></pre>
         </div>
     </div>
 </div>
 <!-- Codeblock End -->
+<p>&nbsp;</p>
+<p>Now, let’s run the code to retrieve all the book data from the <strong>go-materials.xlsx</strong> file and display it in the terminal.</p>
 <p>&nbsp;</p>
 <!-- Terminal Start -->
 <div class="terminal">
@@ -92,20 +261,133 @@ www.devwithgo.dev</code>
     </div>
     <div class="terminal__wrapper">
 <pre>
-<code><span class="terminal__grey">$</span> go run main.go
-Your login data
-email: user@gmail.com - password: 1234</code>
+<code><span class="terminal__grey">$</span> go run .
+BOOKS:
+{title: The Go Programming Language, author: Alan A. A. Donovan - Brian W. Kernighan, year: 2015, rate: 4.7},
+{title: Black Hat Go, author: Chris Patten - Tom Steele - Dan Kottman, year: 2020, rate: 4},
+{title: Mastering Go, author: Mihalis Tsoukalos, year: 2021, rate: 4.1},
+{title: Network Programming with Go, author: Adam Woodbeck, year: 2021, rate: 4.6},</code>
 </pre>
     </div>
 </div>
 <!-- Terminal End -->
 <p>&nbsp;</p>
-<h2>Go multiline comments</h2>
-<p>In Go, multiline comments are enclosed between the delimiters /* and */.</p>
-<p>These comments can span multiple lines, making them ideal for longer explanations, documenting code blocks, or temporarily disabling sections of code during development.</p>
+<p>That’s great, our app is getting the data that we need and returning it as JSON objects.</p>
 <p>&nbsp;</p>
-<p>A common convention within multiline comments is to use the <strong>TODO</strong> tag to mark areas where work still needs to be done or improvements can be made.</p>
-<p>This practice helps developers track outstanding tasks and easily identify areas for future attention.</p>
+<p>You can apply the same approach to extract data from the <strong>Courses</strong> sheet or any other Excel file. But stay with me until the end of this tutorial, as I will show you another way to get the <strong>Courses</strong> data that will enhance your Go skills even further.</p>
+<p>&nbsp;</p>
+<p>Now, let’s create a new file called <strong>courses.go</strong> inside the <strong>util</strong> folder.</p>
+<p>&nbsp;</p>
+<!-- Terminal Start -->
+<div class="terminal">
+    <div class="terminal__container-code-file">
+        <p class="terminal__code-file">go-and-excel</p>
+    </div>
+    <div class="terminal__wrapper">
+<pre>
+<code>go-and-excel/
+└── util/
+    └── books.go
+    └── courses.go
+└── files/
+    └── go-materials.xlsx
+└── go.mod
+└── go.sum
+└── main.go</code>
+</pre>
+    </div>
+</div>
+<!-- Terminal End -->
+<p>&nbsp;</p>
+<p>Time to populate our <strong>courses.go</strong> file with some code.</p>
+<p>&nbsp;</p>
+<!-- Codeblock Start -->
+<div class="codeblock">
+    <div class="codeblock__container-code-file">
+        <p class="codeblock__code-file">courses.go</p>
+    </div>
+    <div class="codeblock__wrapper">
+        <div class="codeblock__container">
+<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
+
+<span class="codeblock__p-import">import</span> <span class="codeblock__y-bracket">(</span>
+    <span class="codeblock__o-string">"fmt"</span>
+    <span class="codeblock__o-string">"strconv"</span>
+
+    <span class="codeblock__o-string">"github.com/xuri/excelize/v2"</span>
+<span class="codeblock__y-bracket">)</span>
+
+<span class="codeblock__b-package">type</span> <span class="codeblock__g-package-name">Course</span> <span class="codeblock__b-package">struct</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__b-package-fmt">ID</span>     <span class="codeblock__g-package-name">int</span>     <span class="codeblock__o-string">`json:"id"`</span>
+    <span class="codeblock__b-package-fmt">Course</span> <span class="codeblock__g-package-name">string</span>  <span class="codeblock__o-string">`json:"course"`</span>
+    <span class="codeblock__b-package-fmt">Author</span> <span class="codeblock__g-package-name">string</span>  <span class="codeblock__o-string">`json:"author"`</span>
+    <span class="codeblock__b-package-fmt">Price</span>  <span class="codeblock__g-package-name">float64</span> <span class="codeblock__o-string">`json:"price"`</span>
+    <span class="codeblock__b-package-fmt">URL</span>    <span class="codeblock__g-package-name">string</span>  <span class="codeblock__o-string">`json:"URL"`</span>
+    <span class="codeblock__y-bracket">}</span>
+
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">Courses</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__g-comment">// Open the file</span>
+    <span class="codeblock__b-package-fmt">getFile</span>, <span class="codeblock__b-package-fmt">err</span> := <span class="codeblock__b-package-fmt">excelize</span>.<span class="codeblock__y-func-name">OpenFile</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"./files/go-materials.xlsx"</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">err</span> != <span class="codeblock__b-package">nil</span> <span class="codeblock__p-bracket">{</span>
+		<span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Unable to open the excel file:"</span>, <span class="codeblock__b-package-fmt">err</span><span class="codeblock__b-bracket">)</span>
+		<span class="codeblock__p-bracket">return</span>
+    <span class="codeblock__p-bracket">}</span>
+
+	<span class="codeblock__p-bracket">defer</span> <span class="codeblock__b-package">func</span><span class="codeblock__p-bracket">()</span> <span class="codeblock__p-bracket">{</span>
+		<span class="codeblock__g-comment">// Close the file</span>
+		<span class="codeblock__p-bracket">if</span> <span class="codeblock__b-package-fmt">err</span> := <span class="codeblock__b-package-fmt">getFile</span>.<span class="codeblock__y-func-name">Close</span><span class="codeblock__b-bracket">()</span>; <span class="codeblock__b-package-fmt">err</span> != <span class="codeblock__b-package">nil</span> <span class="codeblock__b-bracket">{</span>
+            <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Unable to close the excel file:"</span>, <span class="codeblock__b-package-fmt">err</span><span class="codeblock__b-bracket">)</span>
+        <span class="codeblock__b-bracket">}</span>
+    <span class="codeblock__p-bracket">}()</span>
+
+	<span class="codeblock__g-comment">// Get all the rows in the Courses sheet</span>
+    <span class="codeblock__b-package-fmt">rows</span>, <span class="codeblock__b-package-fmt">err</span> := <span class="codeblock__b-package-fmt">getFile</span>.<span class="codeblock__y-func-name">GetRows</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Courses"</span><span class="codeblock__p-bracket">)</span>
+	<span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">err</span> != <span class="codeblock__b-package">nil</span> <span class="codeblock__p-bracket">{</span>
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Unable to get the Courses rows:"</span>, <span class="codeblock__b-package-fmt">err</span><span class="codeblock__b-bracket">)</span>
+		<span class="codeblock__p-bracket">return</span>
+    <span class="codeblock__p-bracket">}</span>
+
+    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package">courses</span> <span class="codeblock__p-bracket">[]</span><span class="codeblock__g-package-name">Course</span>
+    <span class="codeblock__p-bracket">for</span> <span class="codeblock__b-package-fmt">i</span>, <span class="codeblock__b-package-fmt">_</span> := <span class="codeblock__p-bracket">range</span> <span class="codeblock__b-package-fmt">rows</span> <span class="codeblock__p-bracket">{</span>
+        <span class="codeblock__g-comment">// This statement avoid to get the row 0 with cells like "Author, Price, URL"</span>
+        <span class="codeblock__p-bracket">if</span> <span class="codeblock__b-package-fmt">i</span> == <span class="codeblock__g-variable-data">0</span> <span class="codeblock__b-bracket">{</span>
+            <span class="codeblock__p-bracket">continue</span>
+        <span class="codeblock__b-bracket">}</span>
+
+        <span class="codeblock__b-package-fmt">courseTitle</span>, <span class="codeblock__b-package-fmt">_</span> := <span class="codeblock__b-package-fmt">getFile</span>.<span class="codeblock__y-func-name">GetCellValue</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Courses"</span>, <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Sprintf</span><span class="codeblock__y-bracket">(</span><span class="codeblock__o-string">"A</span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">i</span>+<span class="codeblock__g-variable-data">1</span><span class="codeblock__y-bracket">)</span><span class="codeblock__b-bracket">)</span>
+		<span class="codeblock__b-package-fmt">courseAuthor</span>, <span class="codeblock__b-package-fmt">_</span> := <span class="codeblock__b-package-fmt">getFile</span>.<span class="codeblock__y-func-name">GetCellValue</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Courses"</span>, <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Sprintf</span><span class="codeblock__y-bracket">(</span><span class="codeblock__o-string">"B</span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">i</span>+<span class="codeblock__g-variable-data">1</span><span class="codeblock__y-bracket">)</span><span class="codeblock__b-bracket">)</span>
+		<span class="codeblock__b-package-fmt">coursePriceString</span>, <span class="codeblock__b-package-fmt">_</span> := <span class="codeblock__b-package-fmt">getFile</span>.<span class="codeblock__y-func-name">GetCellValue</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Courses"</span>, <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Sprintf</span><span class="codeblock__y-bracket">(</span><span class="codeblock__o-string">"C</span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">i</span>+<span class="codeblock__g-variable-data">1</span><span class="codeblock__y-bracket">)</span><span class="codeblock__b-bracket">)</span>
+		<span class="codeblock__b-package-fmt">courseURL</span>, <span class="codeblock__b-package-fmt">_</span> := <span class="codeblock__b-package-fmt">getFile</span>.<span class="codeblock__y-func-name">GetCellValue</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Courses"</span>, <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Sprintf</span><span class="codeblock__y-bracket">(</span><span class="codeblock__o-string">"D</span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">i</span>+<span class="codeblock__g-variable-data">1</span><span class="codeblock__y-bracket">)</span><span class="codeblock__b-bracket">)</span>
+
+        <span class="codeblock__g-comment">// Convert coursePriceString from string to float64</span>
+        <span class="codeblock__b-package-fmt">coursePrice</span>, <span class="codeblock__b-package-fmt">err</span> := <span class="codeblock__b-package-fmt">strconv</span>.<span class="codeblock__y-func-name">ParseFloat</span><span class="codeblock__b-bracket">(</span><span class="codeblock__b-package-fmt">coursePriceString</span>, <span class="codeblock__g-variable-data">64</span><span class="codeblock__b-bracket">)</span>
+        <span class="codeblock__p-import">if</span> <span class="codeblock__b-package-fmt">err</span> != <span class="codeblock__b-package">nil</span> <span class="codeblock__b-bracket">{</span>
+            <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Unable to concert string to float64:"</span>, <span class="codeblock__b-package-fmt">err</span><span class="codeblock__b-bracket">)</span>
+            <span class="codeblock__p-bracket">return</span>
+        <span class="codeblock__b-bracket">}</span>
+
+        <span class="codeblock__b-package-fmt">course</span> := <span class="codeblock__g-package-name">Course</span><span class="codeblock__b-bracket">{</span>
+            <span class="codeblock__b-package-fmt">ID</span>:     <span class="codeblock__b-package-fmt">i</span>,
+            <span class="codeblock__b-package-fmt">Course</span>: <span class="codeblock__b-package-fmt">courseTitle</span>,
+            <span class="codeblock__b-package-fmt">Author</span>: <span class="codeblock__b-package-fmt">courseAuthor</span>,
+            <span class="codeblock__b-package-fmt">Price</span>:  <span class="codeblock__b-package-fmt">coursePrice</span>,
+            <span class="codeblock__b-package-fmt">URL</span>:    <span class="codeblock__b-package-fmt">courseURL</span>,
+        <span class="codeblock__b-bracket">}</span>
+
+
+        <span class="codeblock__b-package-fmt">courses</span> = <span class="codeblock__y-func-name">append</span><span class="codeblock__b-bracket">(</span><span class="codeblock__b-package-fmt">courses</span>, <span class="codeblock__b-package-fmt">course</span><span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-bracket">}</span>
+
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">courses</span><span class="codeblock__p-bracket">)</span>
+<span class="codeblock__y-bracket">}</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<!-- Codeblock End -->
+<p>&nbsp;</p>
+<p>In the code above, I created a <strong>Course</strong> struct to represent the data structure of the <strong>Course</strong> table, allowing us to store the extracted data in a more organised way.</p>
+<p>Now, let’s call the <strong>Course()</strong> function in <strong>main.go</strong>.</p>
 <p>&nbsp;</p>
 <!-- Codeblock Start -->
 <div class="codeblock">
@@ -116,17 +398,17 @@ email: user@gmail.com - password: 1234</code>
         <div class="codeblock__container">
 <pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
 
-<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package-fmt">productId</span> := <span class="codeblock__g-variable-data">1</span>
-    <span class="codeblock__b-package-fmt">productTitle</span> := <span class="codeblock__o-string">"Go Book"</span>
-    <span class="codeblock__b-package-fmt">productPrice</span> := <span class="codeblock__g-variable-data">9.99</span>
+<span class="codeblock__p-import">import</span> <span class="codeblock__y-bracket">(</span>
+    <span class="codeblock__o-string">"fmt"</span>
+    <span class="codeblock__o-string">"goandexcel/util"</span>
+<span class="codeblock__y-bracket">)</span>
 
-    <span class="codeblock__g-comment">/*</span>
-    <span class="codeblock__g-comment">TODO:</span>
-    <span class="codeblock__g-comment">print out the above</span>
-    <span class="codeblock__g-comment">product data with</span>
-    <span class="codeblock__g-comment">fmt.Printf() functions</span>
-    <span class="codeblock__g-comment">*/</span>
+<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"BOOKS:"</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">util</span>.<span class="codeblock__y-func-name">Books</span><span class="codeblock__p-bracket">()</span>
+
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">COURSES:"</span><span class="codeblock__p-bracket">)</span>
+    <span class="codeblock__b-package-fmt">util</span>.<span class="codeblock__y-func-name">Courses</span><span class="codeblock__p-bracket">()</span>
 <span class="codeblock__y-bracket">}</span>
 </code></pre>
         </div>
@@ -134,38 +416,7 @@ email: user@gmail.com - password: 1234</code>
 </div>
 <!-- Codeblock End -->
 <p>&nbsp;</p>
-<p>While /* ... */ is the designated syntax for multiline comments in Go, you can achieve a similar effect using multiple consecutive single-line comments (//).</p>
-<p>This technique is often employed for shorter multiline comments, where the visual separation of individual lines can enhance readability.</p>
-<p>Ultimately, the choice between the two methods often comes down to personal preference or project conventions.</p>
-<p>&nbsp;</p>
-<!-- Codeblock Start -->
-<div class="codeblock">
-    <div class="codeblock__container-code-file">
-        <p class="codeblock__code-file">main.go</p>
-    </div>
-    <div class="codeblock__wrapper">
-        <div class="codeblock__container">
-<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
-
-<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
-
-<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__g-comment">// Store product data in separate variables</span>
-    <span class="codeblock__g-comment">// for product ID, title, and price</span>
-    <span class="codeblock__b-package-fmt">productId</span> := <span class="codeblock__g-variable-data">1</span>
-    <span class="codeblock__b-package-fmt">productTitle</span> := <span class="codeblock__o-string">"Go Book"</span>
-    <span class="codeblock__b-package-fmt">productPrice</span> := <span class="codeblock__g-variable-data">9.99</span>
-    
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product data"</span><span class="codeblock__p-bracket">)</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product ID: </span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productId</span><span class="codeblock__p-bracket">)</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product Title: </span><span class="codeblock__b-package-fmt">%s</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productTitle</span><span class="codeblock__p-bracket">)</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product Price: </span><span class="codeblock__b-package-fmt">%g</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productPrice</span><span class="codeblock__p-bracket">)</span>
-<span class="codeblock__y-bracket">}</span>
-</code></pre>
-        </div>
-    </div>
-</div>
-<!-- Codeblock End -->
+<p>Let’s run the program and see the course information neatly displayed from our Excel file.</p>
 <p>&nbsp;</p>
 <!-- Terminal Start -->
 <div class="terminal">
@@ -174,120 +425,25 @@ email: user@gmail.com - password: 1234</code>
     </div>
     <div class="terminal__wrapper">
 <pre>
-<code><span class="terminal__grey">$</span> go run main.go
-Product data
-Product ID: 1
-Product Title: Go book
-Product Price: 9.99</code>
+<code><span class="terminal__grey">$</span> go run .
+BOOKS:
+{title: The Go Programming Language, author: Alan A. A. Donovan - Brian W. Kernighan, year: 2015, rate: 4.7},
+{title: Black Hat Go, author: Chris Patten - Tom Steele - Dan Kottman, year: 2020, rate: 4},
+{title: Mastering Go, author: Mihalis Tsoukalos, year: 2021, rate: 4.1},
+{title: Network Programming with Go, author: Adam Woodbeck, year: 2021, rate: 4.6},
+
+COURSES:
+[{1 Creating a reddit clone in Go Philipp 24.99 https://course.gowebexamples.com/} {2 Web Development with Go Jon Calhoun 179.4 https://www.usegolang.com/} {3 Go - The complete guide Maximilian Schwarzmüller 69 https://pro.academind.com/p/go-the-complete-guide}]</code>
 </pre>
     </div>
 </div>
 <!-- Terminal End -->
 <p>&nbsp;</p>
-<h2>Using comments for testing in Go</h2>
-<p>Comments are frequently used as a tool for testing and debugging code.</p>
-<p>Developers often temporarily comment out sections of code to isolate issues, experiment with potential solutions, or simply gain a better understanding of how different parts of the program interact.</p>
-<p>This practice is widespread across programming languages, including Go.</p>
+<p>Well done. You've successfully learned how to read and process Excel data using Go. You're now equipped to tackle more complex data manipulation tasks in your Go projects.</p>
+<p>Feel free to experiment with the code, try reading different Excel files, or even explore advanced features of the Excelize library.</p>
 <p>&nbsp;</p>
-<!-- Codeblock Start -->
-<div class="codeblock">
-    <div class="codeblock__container-code-file">
-        <p class="codeblock__code-file">main.go</p>
-    </div>
-    <div class="codeblock__wrapper">
-        <div class="codeblock__container">
-<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
-
-<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
-
-<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package-fmt">productId</span> := <span class="codeblock__g-variable-data">1</span>
-    <span class="codeblock__b-package-fmt">productTitle</span> := <span class="codeblock__o-string">"Go Book"</span>
-    <span class="codeblock__b-package-fmt">productPrice</span> := <span class="codeblock__g-variable-data">9.99</span>
-    <span class="codeblock__b-package-fmt">productAvailable</span> := <span class="codeblock__b-package">true</span>
-    
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product data"</span><span class="codeblock__p-bracket">)</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product ID: </span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productId</span><span class="codeblock__p-bracket">)</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product Title: </span><span class="codeblock__b-package-fmt">%s</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productTitle</span><span class="codeblock__p-bracket">)</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product Price: </span><span class="codeblock__b-package-fmt">%g</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productPrice</span><span class="codeblock__p-bracket">)</span>
-<span class="codeblock__y-bracket">}</span>
-</code></pre>
-        </div>
-    </div>
-</div>
-<!-- Codeblock End -->
+<p>The full code for this tutorial is available on my GitHub repository: <a class="link" rel="noreferrer noopener" href="https://github.com/MarcoValeri/go-and-excel" target="_blank">Go And Excel</a>.</p>
 <p>&nbsp;</p>
-<!-- Terminal Start -->
-<div class="terminal">
-    <div class="terminal__container-code-file">
-        <p class="terminal__code-file">terminal</p>
-    </div>
-    <div class="terminal__wrapper">
-<pre>
-<code><span class="terminal__grey">$</span> go run main.go
-# command-line-arguments
-.\main.go:9:2: productAvailable declared and not used</code>
-</pre>
-    </div>
-</div>
-<!-- Terminal End -->
+<p>Thank you for joining me in this tutorial. I hope you found it valuable.</p>
 <p>&nbsp;</p>
-<p>As you can see, the above code creates an error because the variable <em>productAvailable</em> is declared but not used – Go does not allow this.</p>
-<p>Let's add a comment to temporarily disable this line of code for testing purposes.</p>
-<p>&nbsp;</p>
-<!-- Codeblock Start -->
-<div class="codeblock">
-    <div class="codeblock__container-code-file">
-        <p class="codeblock__code-file">main.go</p>
-    </div>
-    <div class="codeblock__wrapper">
-        <div class="codeblock__container">
-<pre class="codeblock__pre"><code class="codeblock__code"><span class="codeblock__b-package">package</span> <span class="codeblock__g-package-name">main</span>
-
-<span class="codeblock__p-import">import</span> <span class="codeblock__o-string">"fmt"</span>
-
-<span class="codeblock__b-package">func</span> <span class="codeblock__y-func-name">main</span><span class="codeblock__y-bracket">()</span> <span class="codeblock__y-bracket">{</span>
-    <span class="codeblock__b-package-fmt">productId</span> := <span class="codeblock__g-variable-data">1</span>
-    <span class="codeblock__b-package-fmt">productTitle</span> := <span class="codeblock__o-string">"Go Book"</span>
-    <span class="codeblock__b-package-fmt">productPrice</span> := <span class="codeblock__g-variable-data">9.99</span>
-    <span class="codeblock__g-comment">// productAvailable := true</span>
-    
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product data"</span><span class="codeblock__p-bracket">)</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product ID: </span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productId</span><span class="codeblock__p-bracket">)</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product Title: </span><span class="codeblock__b-package-fmt">%s</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productTitle</span><span class="codeblock__p-bracket">)</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product Price: </span><span class="codeblock__b-package-fmt">%g</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productPrice</span><span class="codeblock__p-bracket">)</span>
-<span class="codeblock__y-bracket">}</span>
-</code></pre>
-        </div>
-    </div>
-</div>
-<!-- Codeblock End -->
-<p>&nbsp;</p>
-<!-- Terminal Start -->
-<div class="terminal">
-    <div class="terminal__container-code-file">
-        <p class="terminal__code-file">terminal</p>
-    </div>
-    <div class="terminal__wrapper">
-<pre>
-<code><span class="terminal__grey">$</span> go run main.go
-Product data
-Product ID: 1
-Product Title: Go book
-Product Price: 9.99</code>
-</pre>
-    </div>
-</div>
-<!-- Terminal End -->
-<p>&nbsp;</p>
-<p>With the commented-out line, the program now compiles and runs without errors. This simple example demonstrates how comments can be a valuable tool for testing and debugging Go code.</p>
-<p>In future guides, we'll delve deeper into the world of Go testing, exploring best practices and frameworks for thoroughly testing your Go programs.</p>
-<div class="prev-next-guide">
-    <div class="prev-next-guide__container-prev">
-        <a class="p-xl link" rel="noreferrer noopener" href="https://www.devwithgo.dev/guide/go-data-types" >&larr; Go data types</a>
-    </div>
-    <div class="prev-next-guide__container-next">
-        <a class="p-xl link" rel="noreferrer noopener" href="https://www.devwithgo.dev/guide/go-if-and-else-statement" >Go if and else statement &rarr;</a>
-
-    </div>
-</div>
+<p>Happy coding with Go.</p>
