@@ -1,6 +1,9 @@
 <!-- Link -->
+<!-- Do Follow Internal -->
+<a class="link" rel="noreferrer noopener" href="https://www.devwithgo.dev/guide/go-data-types" >Go data types</a>
+
 <!-- Do Follow External -->
-<a class="link" rel="noreferrer noopener" href="https://github.com/MarcoValeri/go-and-excel" target="_blank">Go And Excel</a>
+<a class="link" rel="noreferrer noopener" href="https://www.devwithgo.dev/guide/go-data-types" target="_blank">Go data types</a>
 <!-- Amazon -->
 <a class="link" rel="sponsored nofollow" target="_blank" href="https://amzn.to/47m9482">The Power of Discipline di Daniel Walter</a>
 
@@ -78,6 +81,16 @@ echo "Hello " . $name;
     <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">complexNumberTwo</span> <span class="codeblock__g-package-name">complex64</span> = <span class="codeblock__y-func-name">complex</span><span class="codeblock__p-bracket">(</span><span class="codeblock__g-variable-data">6</span>, <span class="codeblock__g-variable-data">3</span><span class="codeblock__p-bracket">)</span>
     <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">complexNumberThree</span> <span class="codeblock__g-package-name">complex128</span>
 
+    <!-- Arrays -->
+    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">arrString</span> <span class="codeblock__p-bracket">[</span><span class="codeblock__g-variable-data">5</span><span class="codeblock__p-bracket">]</span><span class="codeblock__g-package-name">string</span> <span class="codeblock__g-comment">// declare an array of 5 strings</span>
+    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">arrInt</span> <span class="codeblock__p-bracket">[</span><span class="codeblock__g-variable-data">10</span><span class="codeblock__p-bracket">]</span><span class="codeblock__g-package-name">int</span> <span class="codeblock__g-comment">// declare an array of 10 integers</span>
+    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">arrBool</span> <span class="codeblock__p-bracket">[</span><span class="codeblock__g-variable-data">2</span><span class="codeblock__p-bracket">]</span><span class="codeblock__g-package-name">bool</span> <span class="codeblock__g-comment">// declare an array of 2 booleans</span>
+    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">arrFloat64</span> <span class="codeblock__p-bracket">[</span><span class="codeblock__g-variable-data">3</span><span class="codeblock__p-bracket">]</span><span class="codeblock__g-package-name">float64</span> <span class="codeblock__g-comment">// declare an array of 3 float64 numbers</span>
+    <span class="codeblock__b-package">var</span> <span class="codeblock__b-package-fmt">vowels</span> <span class="codeblock__p-bracket">[</span><span class="codeblock__g-variable-data">5</span><span class="codeblock__p-bracket">]</span><span class="codeblock__g-package-name">string</span>{<span class="codeblock__o-string">"a"</span>, <span class="codeblock__o-string">"e"</span>, <span class="codeblock__o-string">"i"</span>, <span class="codeblock__o-string">"o"</span>, <span class="codeblock__o-string">"u"</span>}
+    <span class="codeblock__b-package-fmt">arrOne</span> := <span class="codeblock__p-bracket">[</span><span class="codeblock__g-variable-data">5</span><span class="codeblock__p-bracket">]</span><span class="codeblock__g-package-name">int</span>{}
+    <span class="codeblock__b-package-fmt">arrTwo</span> := <span class="codeblock__p-bracket">[</span><span class="codeblock__g-variable-data">5</span><span class="codeblock__p-bracket">]</span><span class="codeblock__g-package-name">int</span>{<span class="codeblock__g-variable-data">0</span>, <span class="codeblock__g-variable-data">1</span>}
+    <span class="codeblock__b-package-fmt">arrThree</span> := <span class="codeblock__p-bracket">[</span><span class="codeblock__g-variable-data">5</span><span class="codeblock__p-bracket">]</span><span class="codeblock__g-package-name">int</span>{<span class="codeblock__g-variable-data">0</span>, <span class="codeblock__g-variable-data">1</span>, <span class="codeblock__g-variable-data">2</span>, <span class="codeblock__g-variable-data">3</span>, <span class="codeblock__g-variable-data">4</span>}
+
     <!-- Brackets colors-->
     <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Hello World"</span><span class="codeblock__p-bracket">)</span>
     <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"Hello World"</span><span class="codeblock__b-bracket">)</span>
@@ -85,7 +98,7 @@ echo "Hello " . $name;
     
     <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"result ="</span>,<span class="codeblock__b-package-fmt">result</span><span class="codeblock__p-bracket">)</span>
     <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">productOne</span><span class="codeblock__p-bracket">)</span>
-    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__y-func-name">len</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">name</span><span class="codeblock__p-bracket"><span class="codeblock__p-bracket">))</span></span>
+    <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__y-func-name">len</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">name</span><span class="codeblock__p-bracket">))</span>
     <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Username:"</span>, <span class="codeblock__b-package-fmt">userName</span><span class="codeblock__p-bracket">)</span>
     <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"email: </span><span class="codeblock__b-package-fmt">%s </span><span class="codeblock__o-string"> - password: </span><span class="codeblock__b-package-fmt">%s</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">userEmail</span>, <span class="codeblock__b-package-fmt">userPassword</span><span class="codeblock__p-bracket">)</span>
     <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__p-bracket">(</span><span class="codeblock__o-string">"Product ID: </span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">productId</span><span class="codeblock__p-bracket">)</span>
@@ -141,6 +154,12 @@ echo "Hello " . $name;
         <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Println</span><span class="codeblock__b-bracket">(</span><span class="codeblock__b-package-fmt">i</span><span class="codeblock__b-bracket">)</span>
     <span class="codeblock__p-bracket">}</span>
     <!-- END FOR -->
+
+    <!-- FOR ARR -->
+    <span class="codeblock__p-import">for</span> <span class="codeblock__b-package-fmt">index</span> := <span class="codeblock__g-variable-data">0</span>; <span class="codeblock__b-package-fmt">index</span> < <span class="codeblock__y-func-name">len</span><span class="codeblock__p-bracket">(</span><span class="codeblock__b-package-fmt">arr</span><span class="codeblock__p-bracket">)</span>; <span class="codeblock__b-package-fmt">index</span>++ <span class="codeblock__p-bracket">{</span>
+        <span class="codeblock__b-package-fmt">fmt</span>.<span class="codeblock__y-func-name">Printf</span><span class="codeblock__b-bracket">(</span><span class="codeblock__o-string">"</span><span class="codeblock__b-package-fmt">%d</span><span class="codeblock__o-string"> - </span><span class="codeblock__b-package-fmt">%s</span> <span class="codeblock__o-string-new-line">\n</span><span class="codeblock__o-string">"</span>, <span class="codeblock__b-package-fmt">index</span>, <span class="codeblock__b-package-fmt">arr</span>[<span class="codeblock__b-package-fmt">index</span>]<span class="codeblock__b-bracket">)</span>
+    <span class="codeblock__p-bracket">}</span>
+    <!-- END FOR ARR -->
 
     <!-- PROJECT STRUCTURE -->
     go-rich-text-editor-with-quill/
